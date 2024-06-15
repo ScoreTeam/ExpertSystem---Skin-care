@@ -1,6 +1,5 @@
 from experta import *
 from typing import Union
-from experta import *
 class Answer(Fact):
     ident=Field(str)
     text=Field(str)
@@ -53,11 +52,6 @@ class Recommendations(Fact):
      reason = Field(str)
      avoidance = Field(list),
      conf=Field(float)
-
-# from experta import *
-# from facts import Answer,Question,Ask,User
-# import graphviz
-
 
 class SkinCareExpertSystem(KnowledgeEngine):
     def __init__(self):
