@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendations</title>
+</head>
+<body>
+    <h1>Skincare Recommendations</h1>
+    <h2>Your Inputs</h2>
+    <p><strong>Routine Type:</strong> {{ routine_type }}</p>
+    <p><strong>Season:</strong> {{ season }}</p>
+    <p><strong>Skin Condition:</strong> {{ skin_condition }}</p>
+    <p><strong>Sensitivity Details:</strong> {{ sensitivity_details }}</p>
+
+    <h2>Recommendations</h2>
+    <ul>
+        {% for fact in recommendations %}
+            <li>{{ fact }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Go Back</a>
+</body>
+</html>

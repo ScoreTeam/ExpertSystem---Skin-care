@@ -1,0 +1,44 @@
+<!-- <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+</head>
+<body>
+    <h1>Personalized Skin Care Recommendations</h1>
+    {% if recommendations %}
+        <ul>
+            {% for recommendation in recommendations %}
+                <li>
+                    <strong>Product:</strong> {{ recommendation.product }}<br>
+                    <strong>Ingredients:</strong> {{ recommendation.ingredients | join(', ') }}<br>
+                    <strong>Reason:</strong> {{ recommendation.reason }}<br>
+                    <strong>Avoidance:</strong> {{ recommendation.avoidance | join(', ') }}<br>
+                    <strong>Confidence:</strong> {{ recommendation.conf }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No recommendations available at this time. Please try again later.</p>
+    {% endif %}
+</body>
+</html> -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Care Expert System - Recommendations</title>
+</head>
+<body>
+    <h1>Recommendations:</h1>
+    <ul>
+        {% for recommendation in recommendations %}
+            <li>{{ recommendation.product }} - {{ recommendation.reason }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

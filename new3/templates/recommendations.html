@@ -1,0 +1,6 @@
+<h2>Recommendations:</h2>
+<ul>
+{% for recommendation in recommendations %}
+    <li>{{ recommendation.product }} - {{ recommendation.reason }}</li>
+{% endfor %}
+</ul>

@@ -1,0 +1,87 @@
+{
+    "rules": [
+      {
+        "conditions": [
+          {"fact": "action", "value": "find_cleanser"},
+          {"fact": "skin_type", "value": "dry", "alias": "f1"}
+        ],
+        "action": "recommend_action",
+        "parameters": ["Use a hydrating cleanser for dry skin"]
+      },
+      {
+        "conditions": [
+          {"fact": "action", "value": "find_cleanser"},
+          {"fact": "skin_type", "value": "oily", "alias": "f1"}
+        ],
+        "action": "recommend_action",
+        "parameters": ["Use a foaming cleanser for oily skin"]
+      },
+      {
+        "conditions": [
+          {"fact": "action", "value": "find_moisturizer"},
+          {"fact": "skin_type", "value": "dry", "alias": "f1"}
+        ],
+        "action": "recommend_action",
+        "parameters": ["Use a rich, creamy moisturizer for dry skin"]
+      },
+      {
+        "conditions": [
+          {"fact": "action", "value": "find_moisturizer"},
+          {"fact": "skin_type", "value": "oily", "alias": "f1"}
+        ],
+        "action": "recommend_action",
+        "parameters": ["Use a lightweight, oil-free moisturizer for oily skin"]
+      },
+      {
+        "conditions": [
+          {"fact": "action", "value": "find_sunscreen"},
+          {"fact": "skin_tone", "value": "fair", "alias": "f1"}
+        ],
+        "action": "recommend_action",
+        "parameters": ["Use a sunscreen with SPF 50 for fair skin"]
+      },
+      {
+        "conditions": [
+          {"fact": "action", "value": "find_sunscreen"},
+          {"fact": "skin_tone", "value": "medium", "alias": "f1"}
+        ],
+        "action": "recommend_action",
+        "parameters": ["Use a sunscreen with SPF 30 for medium skin"]
+      },
+      {
+        "conditions": [
+          {"fact": "action", "value": "find_sunscreen"},
+          {"fact": "skin_tone", "value": "dark", "alias": "f1"}
+        ],
+        "action": "recommend_action",
+        "parameters": ["Use a sunscreen with SPF 15 for dark skin"]
+      },
+      {
+        "conditions": [
+          {"fact": "action", "value": "find_acne_treatment"},
+          {"fact": "acne", "value": "yes", "alias": "f1"},
+          {"fact": "acne_severity", "value": "moderate", "alias": "f2"}
+        ],
+        "action": "recommend_action",
+        "parameters": ["Use a topical treatment with salicylic acid for moderate acne"]
+      },
+      {
+        "conditions": [
+          {"fact": "action", "value": "find_acne_treatment"},
+          {"fact": "acne", "value": "yes", "alias": "f1"},
+          {"fact": "acne_severity", "value": "severe", "alias": "f2"}
+        ],
+        "action": "recommend_action",
+        "parameters": ["Consult a dermatologist for severe acne treatment"]
+      },
+      {
+        "conditions": [
+          {"fact": "action", "value": "find_sensitive_skin_products"},
+          {"fact": "sensitivity", "value": "yes", "alias": "f1"}
+        ],
+        "action": "recommend_action",
+        "parameters": ["Use fragrance-free and hypoallergenic products for sensitive skin"]
+      }
+    ]
+  }
+  

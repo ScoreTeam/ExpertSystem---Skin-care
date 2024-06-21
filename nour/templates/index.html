@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Care Expert System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Skin Care Expert System</h1>
+        <p>Click the button below to start the questionnaire and get personalized skincare recommendations.</p>
+        <form action="{{ url_for('question') }}" method="POST">
+            <button type="submit">Start</button>
+        </form>
+    </div>
+</body>
+</html>

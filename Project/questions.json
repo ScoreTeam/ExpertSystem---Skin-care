@@ -1,0 +1,87 @@
+{
+    "Skin Type": {
+      "questionType": "multi",
+      "valid": ["dry", "oily", "normal", "combination"],
+      "text": "What is your skin type?",
+      "cfq": "What is your cf?"
+    },
+    "SkinTone": {
+      "questionType": "multi",
+      "valid": ["fair", "medium", "dark"],
+      "text": "What is your skin tone?",
+      "cfq": "What is your cf?"
+    },
+    "Gender": {
+      "questionType": "multi",
+      "valid": ["female", "male"],
+      "text": "What is your gender?",
+      "cfq": "What is your cf?"
+    },
+    "Pregnancy": {
+      "questionType": "multi",
+      "valid": ["yes", "no"],
+      "text": "Are you pregnant or currently breastfeeding?",
+      "cfq": "What is your cf?"
+    },
+    "Acne": {
+      "questionType": "multi",
+      "valid": ["yes", "no"],
+      "text": "Do you have acne?",
+      "cfq": "What is your cf?"
+    },
+    "Age": {
+      "questionType": "multi",
+      "valid": ["young", "adult", "mature"],
+      "text": "How old are you?",
+      "cfq": "What is your cf?"
+    },
+    "Season": {
+      "questionType": "multi",
+      "valid": ["summer", "winter", "spring", "autumn"],
+      "text": "What is the current season in your location?",
+      "cfq": "What is your cf?"
+    },
+    "Routine": {
+      "questionType": "multi",
+      "valid": ["morning", "night", "both"],
+      "text": "What type of routine are you looking for?",
+      "cfq": "What is your cf?"
+    },
+    "Sensitivity": {
+      "questionType": "multi",
+      "valid": ["yes", "no"],
+      "text": "Do you consider your skin to be sensitive?",
+      "cfq": "What is your cf?"
+    },
+    "Sensitivity Details": {
+      "questionType": "multi",
+      "valid": ["Not any", "allergy to salicylic acid", "Fragrance Allergy", "Food", "Chemicals", "Preservative"],
+      "text": "Provide sensitivity details?",
+      "cfq": "What is your cf?"
+    },
+    "Skin Condition": {
+      "questionType": "multi",
+      "valid": ["Not any", "Rosacea", "Eczema", "Perioral Dermatitis", "Periorific Dermatitis", "Seborrheic Dermatitis (scalp)", "Seborrheic Dermatitis (face)"],
+      "text": "Do you have any of these skin conditions?",
+      "cfq": "What is your cf?"
+    },
+    "Acne Details": {
+      "questionType": "multi",
+      "valid": ["Not any", "moderate", "severe"],
+      "text": "How severe is your acne?",
+      "cfq": "What is your cf?"
+    },
+    "Skin Defects": {
+      "questionType": "multi",
+      "valid": ["yes", "no"],
+      "text": "Do you have any skin defects?",
+      "cfq": "What is your cf?"
+    },
+    "Skin Defects Details": {
+      "questionType": "multi",
+      "valid": ["Not any", "yes", "no"],
+      "text": "Please provide details about your skin defects?",
+      "cfq": "What is your cf?"
+    }
+  }
+  

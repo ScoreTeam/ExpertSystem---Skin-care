@@ -1,0 +1,29 @@
+{
+    "recommendations": [
+      {
+        "type": "sun_screen",
+        "conditions": {
+          "routinetype": "morning",
+          "season": "summer",
+          "skincondition": "sensitive",
+          "sensitivitydetails": "fragrance_allergy"
+        },
+        "reason": "Fragrance can cause irritation and allergic reactions, especially in sensitive skin.",
+        "ingredients": ["Mineral UV Filters", "Zinc Oxide", "Titanium Dioxide"],
+        "avoidance": ["Chemical UV Filters", "Fragrance"]
+      },
+      {
+        "type": "sun_screen",
+        "conditions": {
+          "routinetype": "morning",
+          "season": "winter",
+          "skincondition": "Eczema",
+          "sensitivitydetails": "allergy to salicylic acid"
+        },
+        "reason": "Although the winter sun is weaker, UV exposure can still irritate eczema-prone skin.",
+        "ingredients": ["Mineral UV Filters (physical blockers)", "Zinc Oxide", "Titanium Dioxide"],
+        "avoidance": ["Chemical UV Filters", "Salicylic Acid"]
+      }
+    ]
+  }
+  

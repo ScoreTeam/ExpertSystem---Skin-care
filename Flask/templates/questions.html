@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skincare Questionnaire</title>
+</head>
+<body>
+    <h1>Skincare Questionnaire</h1>
+    <!-- <form action="/recommendations" method="POST"> -->
+    <form action="../templates/recommendations.html" method="POST">
+        <label for="routine_type">Routine Type:</label>
+        <select name="routine_type" id="routine_type">
+            <option value="morning">Morning</option>
+            <option value="evening">Evening</option>
+        </select><br>
+
+        <label for="season">Season:</label>
+        <select name="season" id="season">
+            <option value="summer">Summer</option>
+            <option value="winter">Winter</option>
+        </select><br>
+
+        <label for="skin_condition">Skin Condition:</label>
+        <input type="text" name="skin_condition" id="skin_condition"><br>
+
+        <label for="sensitivity_details">Sensitivity Details:</label>
+        <input type="text" name="sensitivity_details" id="sensitivity_details"><br>
+        
+        <label for="sensitivity_conf">Sensitivity Confidence:</label>
+        <input type="number" step="0.01" name="sensitivity_conf" id="sensitivity_conf"><br>
+
+        <label for="skin_condition_conf">Skin Condition Confidence:</label>
+        <input type="number" step="0.01" name="skin_condition_conf" id="skin_condition_conf"><br>
+
+        <button type="submit">Get Recommendations</button>
+    </form>
+</body>
+</html>

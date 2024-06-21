@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skin Care Questionnaire</title>
+</head>
+<body>
+    {% if questions %}
+        <form method="POST" action="/submit">
+            {% for question in questions %}
+                <h2>{{ question.title }}</h2>
+                {% if question.valid %}
+                    <ul>
+                        {% for option in question.valid %}
+                            <li><input type="radio" name="{{ question.id }}" value="{{ option }}">{{ option }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No valid options available for this question.</p>
+                {% endif %}
+            {% endfor %}
+            <button type="submit">Submit</button>
+        </form>
+    {% else %}
+        <p>No questions available.</p>
+    {% endif %}
+</body>
+</html>

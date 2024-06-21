@@ -1,0 +1,7 @@
+<h2>{{ question.text }}</h2>
+<form action="/answer" method="post">
+    <input type="hidden" name="question_id" value="{{ question.ident }}">
+    <input type="text" name="answer" required>
+    <input type="number" name="cf" step="0.1" min="-1.0" max="1.0" value="1.0" required>
+    <button type="submit">Submit Answer</button>
+</form>
