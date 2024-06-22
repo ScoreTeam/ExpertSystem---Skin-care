@@ -112,7 +112,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
     
     @Rule(User(skintype=L("oily"),skincondition=L("Rosacea"),sensitivitydetails=L("Not any"),skinconditionconf=MATCH.cf1,sensitivityconf=MATCH.cf2))
     def Oilycleanser1(self,cf1,cf2):
-        cleanser_reason = "Rosacea is a chronic inflammatory skin condition. Harsh cleansers can irritate and inflame the skin, worsening rosacea symptoms. A gentle cleanser helps remove excess oil, dirt, and makeup without stripping the skin's natural moisture barrier.\n Oily skin with rosacea can be a tricky combination. You want to remove excess oil to prevent breakouts, but you also don't want to over-strip the skin,"
+        cleanser_reason = "Rosacea is a chronic inflammatory skin condition. Harsh cleansers can irritate and inflame the skin, worsening rosacea symptoms. A gentle cleanser helps remove excess oil, dirt, and makeup without stripping the skin's natural moisture barrier. Oily skin with rosacea can be a tricky combination. You want to remove excess oil to prevent breakouts, but you also don't want to over-strip the skin,"
         cleanser_ingredients = ['chamomile', 'green tea','licorice root extract']
         cleanser_avoidance = ['Harsh Sulfates', 'Alcohol', 'Fragrance','Exfoliating Scrubs']
         cf = 0.9 *min(cf1,cf2)
@@ -127,7 +127,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
         self.declare(Recommendations(product="Cleanser", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=cf))
     @Rule(User(skintype=L("oily"),skincondition=L("Eczema"),sensitivitydetails=L("Not any"),skinconditionconf=MATCH.cf1,sensitivityconf=MATCH.cf2))
     def Oilycleanser2(self,cf1,cf2):
-        cleanser_reason = "Support Skin Barrier: Eczema disrupts the skin's natural barrier, making it susceptible to irritation and dryness. Gentle cleansers help remove dirt and irritants without further damaging the barrier.\nReduce Inflammation: Eczema involves inflammation in the skin. Using a gentle cleanser helps avoid unnecessary aggravation."
+        cleanser_reason = "Support Skin Barrier: Eczema disrupts the skin's natural barrier, making it susceptible to irritation and dryness. Gentle cleansers help remove dirt and irritants without further damaging the barrier. Reduce Inflammation: Eczema involves inflammation in the skin. Using a gentle cleanser helps avoid unnecessary aggravation."
         cleanser_ingredients = ['Hydrating Ingredients ', 'Fatty Acids','Soothing Ingredients']
         cleanser_avoidance = ['Fragrance', 'Alcohol', 'Soap','Exfoliating Scrubs','Harsh Sulfates']
         cf = 0.9 *min(cf1,cf2)
@@ -206,7 +206,7 @@ Skin Barrier Repair: Supports the skin's natural barrier function, crucial for E
     # test
     @Rule(User(skintype=L("dry"),skincondition=L("Not any"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def Drycleanser1(self,cf1,cf2):
-        cleanser_reason = "Gentle Cleansing:  A gentle cleanser removes dirt, impurities, and makeup without stripping away the already-limited moisture in dry skin.\nMaintain Moisture Barrier: Dry,  A gentle cleanser helps prevent further dryness and irritation."
+        cleanser_reason = "Gentle Cleansing:  A gentle cleanser removes dirt, impurities, and makeup without stripping away the already-limited moisture in dry skin. Maintain Moisture Barrier: Dry,  A gentle cleanser helps prevent further dryness and irritation."
         cleanser_ingredients = ['Hydrating Ingredients :Hyaluronic acid, ceramides', 'Soothing Ingredients :Chamomile,Creamy Cleansers:','Gentle Cleansers:']
         cleanser_avoidance = ['Harsh Sulfates', 'Alcohol','Fragrance']
         cf = 0.9 *min(cf1,cf2)
@@ -220,7 +220,7 @@ Skin Barrier Repair: Supports the skin's natural barrier function, crucial for E
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),skincondition=L("Rosacea"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def Drycleanser2(self,cf1,cf2):
-        cleanser_reason = "Gentle Cleansing:  Rosacea is hypersensitive to harsh ingredients. A gentle cleanser removes dirt, impurities, and makeup without stripping away the already-limited moisture in dry skin.\nMaintain Moisture Barrier: Dry, rosacea-prone skin has a compromised moisture barrier. A gentle cleanser helps prevent further dryness and irritation."
+        cleanser_reason = "Gentle Cleansing:  Rosacea is hypersensitive to harsh ingredients. A gentle cleanser removes dirt, impurities, and makeup without stripping away the already-limited moisture in dry skin. Maintain Moisture Barrier: Dry, rosacea-prone skin has a compromised moisture barrier. A gentle cleanser helps prevent further dryness and irritation."
         cleanser_ingredients = ['Hydrating Ingredients :Hyaluronic acid, ceramides', 'Soothing Ingredients :Chamomile,Creamy Cleansers:','Gentle Cleansers:']
         cleanser_avoidance = ['Harsh Sulfates', 'Alcohol','Fragrance']
         cf = 0.9 *min(cf1,cf2)
@@ -234,7 +234,7 @@ Skin Barrier Repair: Supports the skin's natural barrier function, crucial for E
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),skincondition=L("Eczema"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def Drycleanser3(self,cf1,cf2):
-        cleanser_reason = "Support Skin Barrier: Eczema disrupts the skin's natural barrier, making it dry, itchy, and prone to irritation. A gentle cleanser removes dirt and irritants without further damaging the barrier, allowing it to retain moisture.\nMinimize Irritation: Dry, eczema-prone skin is already sensitive. A gentle cleanser avoids unnecessary aggravation and helps soothe existing irritation."
+        cleanser_reason = "Support Skin Barrier: Eczema disrupts the skin's natural barrier, making it dry, itchy, and prone to irritation. A gentle cleanser removes dirt and irritants without further damaging the barrier, allowing it to retain moisture. Minimize Irritation: Dry, eczema-prone skin is already sensitive. A gentle cleanser avoids unnecessary aggravation and helps soothe existing irritation."
         cleanser_ingredients = ["Ultra-Hydrating Ingredients: Hyaluronic acid, ceramides,", "Emollients: Ingredients like shea butter, cocoa butter",'Fragrance-Free']
         cleanser_avoidance = ['Harsh Sulfates', 'Alcohol','Soap']
         cf = 0.9 *min(cf1,cf2)
@@ -248,7 +248,7 @@ Skin Barrier Repair: Supports the skin's natural barrier function, crucial for E
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),skincondition=L("Not any"),sensitivitydetails=L("Fragrance Allergy"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def Drycleanser4(self,cf1,cf2):
-        cleanser_reason = "Gentle Cleansing: Dry skin already lacks moisture, and harsh cleansers can further strip it away, worsening dryness and irritation. A gentle cleanser effectively removes dirt and impurities without disrupting the skin's delicate balance.\nMinimize Irritation: Fragrance is a common skin irritant, especially for those with sensitive skin. A fragrance-free cleanser avoids unnecessary aggravation and helps soothe existing dryness."
+        cleanser_reason = "Gentle Cleansing: Dry skin already lacks moisture, and harsh cleansers can further strip it away, worsening dryness and irritation. A gentle cleanser effectively removes dirt and impurities without disrupting the skin's delicate balance. Minimize Irritation: Fragrance is a common skin irritant, especially for those with sensitive skin. A fragrance-free cleanser avoids unnecessary aggravation and helps soothe existing dryness."
         cleanser_ingredients = ['Hydrating Ingredients: Hyaluronic acid', 'Fragrance-Free','Creamy or Ointment Cleansers']
         cleanser_avoidance = ['Fragrance (Obviously!)', 'Alcohol','Essential Oils']
         cf = 0.9 *min(cf1,cf2)
@@ -262,7 +262,7 @@ Skin Barrier Repair: Supports the skin's natural barrier function, crucial for E
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),skincondition=L("Not any"),sensitivitydetails=L("allergy to salicylic acid"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def Drycleanser5(self,cf1,cf2):
-        cleanser_reason = "Gentle Cleansing: Dry skin lacks moisture, and harsh cleansers can further strip it away, worsening dryness and irritation. A gentle cleanser effectively removes dirt and impurities without disrupting the skin's delicate balance.\nMinimize Irritation:  Since you're allergic to salicylic acid, a gentle cleanser avoids unnecessary aggravation and helps soothe existing dryness."
+        cleanser_reason = "Gentle Cleansing: Dry skin lacks moisture, and harsh cleansers can further strip it away, worsening dryness and irritation. A gentle cleanser effectively removes dirt and impurities without disrupting the skin's delicate balance. Minimize Irritation:  Since you're allergic to salicylic acid, a gentle cleanser avoids unnecessary aggravation and helps soothe existing dryness."
         cleanser_ingredients = ['Hydrating Ingredients: Hyaluronic acid', 'Emollients: Ingredients like shea butter, cocoa butter,','Gentle Cleansers:','Soothing Ingredients: Chamomile, calendula']
         cleanser_avoidance = ['Salicylic Acid (Obviously!)', 'Alcohol','Fragrance']
         cf = 0.9 *min(cf1,cf2)
@@ -326,7 +326,7 @@ Hydration and Skin Barrier Repair: Provides moisture to replenish dry skin and s
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),skincondition=L("Rosacea"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def combinationcleanser2(self,cf1,cf2):
-        cleanser_reason = "Balance Oil Control and Hydration: Combination skin has areas that are oily (often the T-zone: forehead, nose, chin) and areas that are dry or normal. A gentle cleanser removes excess oil from oily areas without stripping moisture from drier areas, maintaining a healthy balance.\nMinimize Rosacea Irritation: Harsh cleansers can irritate rosacea-prone skin, worsening redness and inflammation. A gentle cleanser cleanses effectively without triggering flare-ups."
+        cleanser_reason = "Balance Oil Control and Hydration: Combination skin has areas that are oily (often the T-zone: forehead, nose, chin) and areas that are dry or normal. A gentle cleanser removes excess oil from oily areas without stripping moisture from drier areas, maintaining a healthy balance. Minimize Rosacea Irritation: Harsh cleansers can irritate rosacea-prone skin, worsening redness and inflammation. A gentle cleanser cleanses effectively without triggering flare-ups."
         cleanser_ingredients = ['Balancing Ingredients: Niacinamide', 'Hydrating Ingredients: Hyaluronic acid or glycerin','Gentle Cleansers']
         cleanser_avoidance = ['Harsh Exfoliants', 'Heavy Oils','Harsh Sulfates','Alcohol','Fragrance']
         cf = 0.9 *min(cf1,cf2)
@@ -340,7 +340,7 @@ Hydration and Skin Barrier Repair: Provides moisture to replenish dry skin and s
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),skincondition=L("Eczema"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def combinationcleanser3(self,cf1,cf2):
-        cleanser_reason = "Balance Oil Control and Barrier Repair: Combination skin has areas that are oily (often the T-zone: forehead, nose, chin) and areas that are dry or eczema-prone. A gentle cleanser removes excess oil from oily areas without stripping moisture from drier, eczema-prone areas, while also supporting the skin's barrier function.\nMinimize Eczema Irritation: Harsh cleansers can irritate eczema, worsening redness, itching, and dryness. A gentle cleanser cleanses effectively without triggering flare-ups."
+        cleanser_reason = "Balance Oil Control and Barrier Repair: Combination skin has areas that are oily (often the T-zone: forehead, nose, chin) and areas that are dry or eczema-prone. A gentle cleanser removes excess oil from oily areas without stripping moisture from drier, eczema-prone areas, while also supporting the skin's barrier function. Minimize Eczema Irritation: Harsh cleansers can irritate eczema, worsening redness, itching, and dryness. A gentle cleanser cleanses effectively without triggering flare-ups."
         cleanser_ingredients = ['Balancing Ingredients: Niacinamide', 'Barrier Repair Ingredients: Ceramides and hyaluronic acid','Soothing Ingredients: Chamomile, calendula','Gentle Cleansers']
         cleanser_avoidance = ['Harsh Exfoliants','Harsh Sulfates','Alcohol','Fragrance']
         cf = 0.9 *min(cf1,cf2)
@@ -354,7 +354,7 @@ Hydration and Skin Barrier Repair: Provides moisture to replenish dry skin and s
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),skincondition=L("Not any"),sensitivitydetails=L("Fragrance Allergy"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def combinationcleanser4(self,cf1,cf2):
-        cleanser_reason = "Balance Oil Control: Combination skin has areas that are oily (often the T-zone) and areas that are normal or dry. A gentle cleanser removes excess oil from oily areas without stripping moisture from drier areas, maintaining a healthy balance.\nMinimize Irritation: Fragrance can irritate sensitive skin, especially for those with fragrance allergies. A fragrance-free cleanser avoids unnecessary aggravation and helps maintain a calm complexion."
+        cleanser_reason = "Balance Oil Control: Combination skin has areas that are oily (often the T-zone) and areas that are normal or dry. A gentle cleanser removes excess oil from oily areas without stripping moisture from drier areas, maintaining a healthy balance. Minimize Irritation: Fragrance can irritate sensitive skin, especially for those with fragrance allergies. A fragrance-free cleanser avoids unnecessary aggravation and helps maintain a calm complexion."
         cleanser_ingredients = ['Balancing Ingredients: Niacinamide', 'Hydrating Ingredients: Hyaluronic acid or glycerin','Gentle Cleansers']
         cleanser_avoidance = ['Fragrance (Obviously!)','Harsh Sulfates','Alcohol']
         cf = 0.9 *min(cf1,cf2)
@@ -368,7 +368,7 @@ Hydration and Skin Barrier Repair: Provides moisture to replenish dry skin and s
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),skincondition=L("Not any"),sensitivitydetails=L("allergy to salicylic acid"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def combinationcleanser5(self,cf1,cf2):
-        cleanser_reason = "Balance Oil Control:  Combination skin has areas that are oily (often the T-zone) and areas that are normal or dry. A gentle cleanser removes excess oil from oily areas without stripping moisture from drier areas, maintaining a healthy balance.\nMinimize Irritation (No Salicylic Acid): Since you're allergic to salicylic acid, a gentle cleanser avoids any potential irritation and helps manage oil without triggering flare-ups."
+        cleanser_reason = "Balance Oil Control:  Combination skin has areas that are oily (often the T-zone) and areas that are normal or dry. A gentle cleanser removes excess oil from oily areas without stripping moisture from drier areas, maintaining a healthy balance. Minimize Irritation (No Salicylic Acid): Since you're allergic to salicylic acid, a gentle cleanser avoids any potential irritation and helps manage oil without triggering flare-ups."
         cleanser_ingredients = ['Balancing Ingredients: Niacinamide','Gentle Cleansers']
         cleanser_avoidance = ['Fragrance (Obviously!)','Harsh Sulfates','Alcohol']
         cf = 0.9 *min(cf1,cf2)
@@ -416,7 +416,7 @@ Soothing Relief: Calms irritation and itching associated with Eczema.'''
     # @noores'note : make one for normal with Rosacea
     @Rule(User(skintype=L("normal"),skincondition=L("Not any"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def NormalCleanser1(self,cf1,cf2):
-        cleanser_reason = "Maintain Balance:  Normal skin is the holy grail - not too oily, not too dry. A gentle cleanser effectively removes dirt, impurities, and makeup without disrupting the skin's natural balance and healthy moisture barrier.\nSupport Overall Health:  A good cleanser helps maintain the clarity and radiance of healthy normal skin."
+        cleanser_reason = "Maintain Balance:  Normal skin is the holy grail - not too oily, not too dry. A gentle cleanser effectively removes dirt, impurities, and makeup without disrupting the skin's natural balance and healthy moisture barrier. Support Overall Health:  A good cleanser helps maintain the clarity and radiance of healthy normal skin."
         cleanser_ingredients = ['Balancing Ingredients: Niacinamide',"Hydrating Ingredients (Optional)",'Gentle Cleansers']
         cleanser_avoidance = ['Fragrance ','Harsh Sulfates','Alcohol']
         cf = 0.9 *min(cf1,cf2)
@@ -430,7 +430,7 @@ Soothing Relief: Calms irritation and itching associated with Eczema.'''
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("normal"),skincondition=L("Eczema"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def NormalCleanser2(self,cf1,cf2):
-        cleanser_reason = "Gentle Cleansing:  Even though your overall skin type is normal, eczema disrupts the skin's natural barrier, making it prone to dryness and irritation. A gentle cleanser removes dirt, impurities, and makeup without stripping away moisture or further damaging the barrier.\nMinimize Eczema Irritation:  Normal skin can tolerate more, but eczema patches are sensitive and easily irritated. A gentle cleanser avoids unnecessary aggravation and helps soothe existing irritation."
+        cleanser_reason = "Gentle Cleansing:  Even though your overall skin type is normal, eczema disrupts the skin's natural barrier, making it prone to dryness and irritation. A gentle cleanser removes dirt, impurities, and makeup without stripping away moisture or further damaging the barrier. Minimize Eczema Irritation:  Normal skin can tolerate more, but eczema patches are sensitive and easily irritated. A gentle cleanser avoids unnecessary aggravation and helps soothe existing irritation."
         cleanser_ingredients = ['Barrier Repair Ingredients: Ceramides and hyaluronic acid',"Soothing Ingredients: Chamomile, calendula",'Gentle Cleansers']
         cleanser_avoidance = ['Fragrance ','Harsh Sulfates','Alcohol','Exfoliating Scrubs']
         cf = 0.9 *min(cf1,cf2)
@@ -522,7 +522,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
     # based on skin type/acne/sensetivites/skin conditions
     @Rule(User(skintype=L("oily"),have_acne=L("no"),sensitivitydetails=L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer1(self,cf1,cf2,cf3):
-        moisturizer_reason = "Oily skin can be deceptive. While it produces excess oil, it still needs proper hydration to maintain a healthy barrier function. Using a moisturizer specifically formulated for oily skin helps:\nBalance hydration without clogging pores.\nPotentially reduce oil production over time.\nImprove overall skin health."
+        moisturizer_reason = "Oily skin can be deceptive. While it produces excess oil, it still needs proper hydration to maintain a healthy barrier function. Using a moisturizer specifically formulated for oily skin helps: Balance hydration without clogging pores. Potentially reduce oil production over time. Improve overall skin health."
         moisturizer_ingredients = ['Niacinamide', 'Hyaluronic Acid']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
@@ -536,7 +536,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("oily"),have_acne=L("yes"),sensitivitydetails=L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer2(self,cf1,cf2,cf3):
-        moisturizer_reason = "Oily, acne-prone skin needs a balancing act. It craves hydration to maintain a healthy barrier, but excess oil can lead to breakouts. A moisturizer formulated for oily skin with acne can help:\nHydrate without clogging pores (non-comedogenic).\nControl excess oil production.\nPotentially reduce acne breakouts with specific ingredients."
+        moisturizer_reason = "Oily, acne-prone skin needs a balancing act. It craves hydration to maintain a healthy barrier, but excess oil can lead to breakouts. A moisturizer formulated for oily skin with acne can help: Hydrate without clogging pores (non-comedogenic). Control excess oil production. Potentially reduce acne breakouts with specific ingredients."
         moisturizer_ingredients = ['Niacinamide', 'Acne-Fighting Ingredients(Salicylic Acid-Benzoyl Peroxide)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
@@ -550,7 +550,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("oily"),have_acne=L("no"),sensitivitydetails=~L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer3(self,cf1,cf2,cf3):
-        moisturizer_reason = "Sensitive, oily skin presents a unique challenge. While it produces excess oil, harsh ingredients can easily trigger irritation. A gentle, oil-free moisturizer can help:\nBalance hydration without clogging pores (non-comedogenic).\nSoothe and calm sensitive skin.\nMaintain a healthy skin barrier"
+        moisturizer_reason = "Sensitive, oily skin presents a unique challenge. While it produces excess oil, harsh ingredients can easily trigger irritation. A gentle, oil-free moisturizer can help: Balance hydration without clogging pores (non-comedogenic). Soothe and calm sensitive skin. Maintain a healthy skin barrier"
         moisturizer_ingredients = ['Oil-Free Lotions or Gel Moisturizers', 'Soothing Ingredients(Centella Asiatica (CICA)-Allantoin)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
@@ -564,7 +564,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("oily"),have_acne=L("no"),sensitivitydetails=L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer4(self,cf1,cf2,cf3):
-        moisturizer_reason = "oily skin can still have specific skin conditions that require tailored care. A moisturizer formulated for oily skin with a skin condition can help:\nBalance hydration without clogging pores (non-comedogenic).\nAddress the specific concerns of your skin condition.\nMaintain a healthy skin barrier."
+        moisturizer_reason = "oily skin can still have specific skin conditions that require tailored care. A moisturizer formulated for oily skin with a skin condition can help: Balance hydration without clogging pores (non-comedogenic). Address the specific concerns of your skin condition. Maintain a healthy skin barrier."
         moisturizer_ingredients = ['Oil-Free Lotions or Gel Moisturizers','fragrance-free']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
@@ -578,7 +578,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("oily"),have_acne=L("no"),sensitivitydetails=~L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer5(self,cf1,cf2,cf3):
-        moisturizer_reason = "This combination requires a delicate balancing act. Oily skin needs hydration, but harsh ingredients can trigger irritation in sensitive skin, and the specific skin condition has its own needs. A gentle, oil-free moisturizer formulated for sensitive skin can help:\nBalance hydration without clogging pores (non-comedogenic).\nSoothe and calm sensitive skin.\nMaintain a healthy skin barrier, addressing the specific concerns of your skin condition."
+        moisturizer_reason = "This combination requires a delicate balancing act. Oily skin needs hydration, but harsh ingredients can trigger irritation in sensitive skin, and the specific skin condition has its own needs. A gentle, oil-free moisturizer formulated for sensitive skin can help: Balance hydration without clogging pores (non-comedogenic). Soothe and calm sensitive skin. Maintain a healthy skin barrier, addressing the specific concerns of your skin condition."
         moisturizer_ingredients = ['Oil-Free Lotions or Gel Moisturizers','fragrance-free','Soothing Ingredients(Centella Asiatica (CICA)-Allantoin)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
@@ -592,7 +592,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("oily"),have_acne=L("yes"),sensitivitydetails=~L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer6(self,cf1,cf2,cf3):
-        moisturizer_reason = "This combination requires a delicate balancing act. Oily skin needs hydration, but harsh ingredients can trigger irritation in sensitive skin, and the specific skin condition has its own needs. A gentle, oil-free moisturizer formulated for sensitive skin can help:\nBalance hydration without clogging pores (non-comedogenic).\nSoothe and calm sensitive skin.\nMaintain a healthy skin barrier, addressing the specific concerns of your skin condition.\nAdditionally, some ingredients can help manage acne."
+        moisturizer_reason = "This combination requires a delicate balancing act. Oily skin needs hydration, but harsh ingredients can trigger irritation in sensitive skin, and the specific skin condition has its own needs. A gentle, oil-free moisturizer formulated for sensitive skin can help: Balance hydration without clogging pores (non-comedogenic). Soothe and calm sensitive skin. Maintain a healthy skin barrier, addressing the specific concerns of your skin condition. Additionally, some ingredients can help manage acne."
         moisturizer_ingredients = ['Oil-Free Lotions or Gel Moisturizers','fragrance-free','Soothing Ingredients(Centella Asiatica (CICA)-Allantoin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
@@ -606,7 +606,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("oily"),have_acne=L("yes"),sensitivitydetails=L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer7(self,cf1,cf2,cf3):
-        moisturizer_reason = "This combination requires a delicate balancing act. Oily skin needs hydration, and the specific skin condition has its own needs. A gentle, oil-free moisturizer formulated for sensitive skin can help:\nBalance hydration without clogging pores (non-comedogenic).\nMaintain a healthy skin barrier, addressing the specific concerns of your skin condition.\nAdditionally, some ingredients can help manage acne."
+        moisturizer_reason = "This combination requires a delicate balancing act. Oily skin needs hydration, and the specific skin condition has its own needs. A gentle, oil-free moisturizer formulated for sensitive skin can help: Balance hydration without clogging pores (non-comedogenic). Maintain a healthy skin barrier, addressing the specific concerns of your skin condition. Additionally, some ingredients can help manage acne."
         moisturizer_ingredients = ['Oil-Free Lotions or Gel Moisturizers','fragrance-free','Soothing Ingredients(Centella Asiatica (CICA)-Allantoin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
@@ -621,7 +621,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         
     @Rule(User(skintype=L("oily"),have_acne=L("yes"),sensitivitydetails=~L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer8(self,cf1,cf2,cf3):
-        moisturizer_reason = "This combination requires a delicate balancing act. Oily skin needs hydration, A gentle, oil-free moisturizer formulated for sensitive skin can help:\nBalance hydration without clogging pores (non-comedogenic).\nAdditionally, some ingredients can help manage acne."
+        moisturizer_reason = "This combination requires a delicate balancing act. Oily skin needs hydration, A gentle, oil-free moisturizer formulated for sensitive skin can help: Balance hydration without clogging pores (non-comedogenic). Additionally, some ingredients can help manage acne."
         moisturizer_ingredients = ['Oil-Free Lotions or Gel Moisturizers','fragrance-free','Soothing Ingredients(Centella Asiatica (CICA)-Allantoin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
@@ -1037,7 +1037,7 @@ Management of acne breakouts (considering sensitivities).'''
     # based on routine and season and Skin Condition,Skin Sensitivity,
     @Rule(User(routinetype=L("morning"),season=L("summer"),skincondition=L("Not any"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2))
     def RecommededSunScreen1(self,cf1,cf2):
-        sunscreen_reason = "Protects skin from harmful UVA and UVB rays, especially important during summer when the sun's rays are strongest.\nHelps prevent premature aging and sun damage, including sunburn"
+        sunscreen_reason = "Protects skin from harmful UVA and UVB rays, especially important during summer when the sun's rays are strongest. Helps prevent premature aging and sun damage, including sunburn"
         sunscreen_ingredients = ['Zinc Oxide', 'Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters', 'Oxybenzone']
         cf=0.9*min(cf1,cf2)
@@ -1096,7 +1096,7 @@ Management of acne breakouts (considering sensitivities).'''
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("winter"),skincondition=L("Eczema"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen5(self,cf1,cf2):
-        sunscreen_reason = "While the sun's rays are weaker in winter, UV exposure can still damage eczema-prone skin. \nSunscreen helps protect against:Premature aging and wrinkles (caused by UVA rays).Sunburn (caused by UVB rays, even on cloudy days)."
+        sunscreen_reason = "While the sun's rays are weaker in winter, UV exposure can still damage eczema-prone skin.  Sunscreen helps protect against:Premature aging and wrinkles (caused by UVA rays).Sunburn (caused by UVB rays, even on cloudy days)."
         # sunscreen_reason += ' Even in colder months, UV rays can still penetrate through clouds and windows, so daily sunscreen application is essential.'
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)', 'Chemical UV Filters']
         sunscreen_avoidance = ['Harsh chemicals','fragrance']
@@ -1139,7 +1139,7 @@ Management of acne breakouts (considering sensitivities).'''
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("summer"),skincondition=L("Not any"),sensitivitydetails=L("Fragrance Allergy"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen8(self,cf1,cf2):
-        sunscreen_reason = "Essential for protecting your skin from UV rays, especially important in summer when the sun's strongest. Sunscreen helps prevent premature aging and sun damage, including sunburn.,\nook for fragrance-free and non-comedogenic formulas."
+        sunscreen_reason = "Essential for protecting your skin from UV rays, especially important in summer when the sun's strongest. Sunscreen helps prevent premature aging and sun damage, including sunburn., ook for fragrance-free and non-comedogenic formulas."
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)','Zinc Oxide','Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Fragrance (obviously!)']
         cf=0.9*min(cf1,cf2)
@@ -1305,10 +1305,11 @@ Management of acne breakouts (considering sensitivities).'''
         'product': 'Anti-Aging Serum',
         'ingredients': serum_ingredients,
         'reason': serum_reason,
-        'avoidance': serum_avoidance
+        'avoidance': serum_avoidance,
+        'confidence': 1.0,
         })
-        self.declare(Recommendations(product="Anti-Aging Serum",ingredients=serum_ingredients,reason=serum_reason,avoidance=serum_avoidance))
-    @Rule(User(skindeffects=L("yes")),User(deffectsdetails=L("hyperpigmentation")))
+        self.declare(Recommendations(product="Anti-Aging Serum",ingredients=serum_ingredients,reason=serum_reason,avoidance=serum_avoidance,conf=1.0))
+    @Rule(User(skincondition=L("hyperpigmentation")))
     def Recommededserum2(self):
         serum_reason = 'Brightening serums help to fade dark spots, even out skin tone, and restore radiance to the complexion.'
         serum_ingredients = ['Vitamin C', 'Niacinamide']
@@ -1317,9 +1318,10 @@ Management of acne breakouts (considering sensitivities).'''
             'product': 'Brightening Serum',
             'ingredients': serum_ingredients,
             'reason': serum_reason,
-            'avoidance': serum_avoidance
+            'avoidance': serum_avoidance,
+            'confidence': 1.0,
         })
-        self.declare(Recommendations(product="Brightening Serum",ingredients=serum_ingredients,reason=serum_reason,avoidance=serum_avoidance))
+        self.declare(Recommendations(product="Brightening Serum",ingredients=serum_ingredients,reason=serum_reason,avoidance=serum_avoidance,conf=1.0))
         
     
     
@@ -1328,13 +1330,6 @@ Management of acne breakouts (considering sensitivities).'''
     # Sensitive Skin
     @Rule(User(skintype=W(), sensitivity=L("yes")))
     def RefineForSensitiveOilySkin(self,):
-        # self.modify(Recommendations,reason="Not any")
-        
-        # noore's notes: 12 is the number of deffacts , i know its a stupid way but its temp 
-        # self.retract(len(self.facts)+(12-2))
-        
-        # self.recommendations.clear()
-        # self.declare(Recommendations(reason="Not any"))
         sensitive_reason = 'Gentle, soothing products are essential for sensitive skin to minimize irritation and maintain a healthy skin barrier.'
         sensitive_ingredients = ['Aloe Vera', 'Colloidal Oatmeal']
         sensitive_avoidance = ['Alcohol', 'Synthetic Dyes']
@@ -1342,7 +1337,8 @@ Management of acne breakouts (considering sensitivities).'''
             'product': 'Soothing Cream',
             'ingredients': sensitive_ingredients,
             'reason': sensitive_reason,
-            'avoidance': sensitive_avoidance
+            'avoidance': sensitive_avoidance,
+            'confidence': 1.0,
         })
         self.declare(Recommendations(product="Soothing Cream",ingredients=sensitive_ingredients,reason=sensitive_reason,avoidance=sensitive_avoidance,conf=1.0))
         
@@ -1370,12 +1366,13 @@ Management of acne breakouts (considering sensitivities).'''
         'product': 'Shaving Gel',
         'ingredients': shaving_gel_ingredients,
         'reason': shaving_gel_reason,
-        'avoidance': shaving_gel_avoidance
+        'avoidance': shaving_gel_avoidance,
+        'confidence': 1.0,
         })
         self.declare(Recommendations(product="Shaving Gel",ingredients=shaving_gel_ingredients,reason=shaving_gel_reason,avoidance=shaving_gel_avoidance))
     
     # Pregnancy and breastfeeding considerations
-    @Rule(User(pregnancy=L("yes")))
+    @Rule(User(pregnancy=L("yes"),gender=L('female')))
     def PregORBFRec(self):
         pregnancy_safe_reason = 'Opt for pregnancy-safe skincare products with minimal use of active ingredients that may be harmful during pregnancy or breastfeeding.'
         pregnancy_safe_ingredients = ['Glycolic Acid (in low concentrations)', 'Hyaluronic Acid', 'Vitamin C (in stable form)']
@@ -1413,9 +1410,10 @@ Management of acne breakouts (considering sensitivities).'''
             'product': 'Medium Skin Care',
             'ingredients': medium_skin_ingredients,
             'reason': medium_skin_reason,
-            'avoidance': medium_skin_avoidance
+            'avoidance': medium_skin_avoidance,
+            'confidence': 1.0,
         })
-        self.declare(Recommendations(product="Medium Skin Care",ingredients=medium_skin_ingredients,reason=medium_skin_reason,avoidance=medium_skin_avoidance))
+        self.declare(Recommendations(product="Medium Skin Care",ingredients=medium_skin_ingredients,reason=medium_skin_reason,avoidance=medium_skin_avoidance,conf=1.0))
     @Rule(User(skintone=L("dark")))
     def Skintone3(self):
         dark_skin_reason = 'Dark skin tones require products that prevent hyperpigmentation and provide adequate moisture.'
@@ -1425,9 +1423,10 @@ Management of acne breakouts (considering sensitivities).'''
             'product': 'Dark Skin Care',
             'ingredients': dark_skin_ingredients,
             'reason': dark_skin_reason,
-            'avoidance': dark_skin_avoidance
+            'avoidance': dark_skin_avoidance,
+            'confidence': 1.0,
         })
-        self.declare(Recommendations(product="Dark Skin Care",ingredients=dark_skin_ingredients,reason=dark_skin_reason,avoidance=dark_skin_avoidance))
+        self.declare(Recommendations(product="Dark Skin Care",ingredients=dark_skin_ingredients,reason=dark_skin_reason,avoidance=dark_skin_avoidance,conf=1.0))
     #test
     @Rule(User(skincondition=L("Eczema")),)
     def KnowledgeinfoEczema(self):
@@ -1438,9 +1437,10 @@ Management of acne breakouts (considering sensitivities).'''
         'product': 'INFO:',
         'ingredients': ingredients,
         'explaination': explaination,
-        'avoidance': avoidance
+        'avoidance': avoidance,
+        'confidence': 1.0,
         })
-        self.declare(Recommendations(info="INFO",ingredients=ingredients,explaination=explaination,avoidance=avoidance))
+        self.declare(Recommendations(info="INFO",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
     @Rule(User(sensitivitydetails=L("Food")),)
     def KnowledgeinfoFood(self):
         explaination = 'Check product labels for potential allergens. Use products clearly labeled as free from specific allergens'
@@ -1450,9 +1450,10 @@ Management of acne breakouts (considering sensitivities).'''
         'product': 'INFO:',
         'ingredients': ingredients,
         'explaination': explaination,
-        'avoidance': avoidance
+        'avoidance': avoidance,
+        'confidence': 1.0,
         })
-        self.declare(Recommendations(info="INFO",ingredients=ingredients,explaination=explaination,avoidance=avoidance))
+        self.declare(Recommendations(info="INFO",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
     @Rule(User(sensitivitydetails=L("Chemicals")),)
     def KnowledgeinfoChemical(self):
         explaination = 'for products labeled as -free of harsh chemicals-, -hypoallergenic- and -non-comedogeni'
@@ -1462,9 +1463,10 @@ Management of acne breakouts (considering sensitivities).'''
         'product': 'INFO:',
         'ingredients': ingredients,
         'explaination': explaination,
-        'avoidance': avoidance
+        'avoidance': avoidance,
+        'confidence': 1.0,
         })
-        self.declare(Recommendations(info="INFO",ingredients=ingredients,explaination=explaination,avoidance=avoidance))
+        self.declare(Recommendations(info="INFO",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
     @Rule(User(sensitivitydetails=L("Preservative")),)
     def KnowledgeinfoChemicalPreservative(self):
         explaination = 'for products labeled as -free of harsh chemicals-, -hypoallergenic- and -non-comedogenic'
@@ -1474,9 +1476,10 @@ Management of acne breakouts (considering sensitivities).'''
         'product': 'INFO:',
         'ingredients': ingredients,
         'explaination': explaination,
-        'avoidance': avoidance
+        'avoidance': avoidance,
+        'confidence': 1.0,
         })
-        self.declare(Recommendations(info="INFO",ingredients=ingredients,explaination=explaination,avoidance=avoidance))
+        self.declare(Recommendations(info="INFO",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
     @Rule(User(skintype=~L("default")),salience=-1)
     def Default(self):
         # with open('recommendations.json', 'a') as json_file:
