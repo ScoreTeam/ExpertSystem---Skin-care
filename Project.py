@@ -1,58 +1,7 @@
+import json
 from experta import *
 from typing import Union
-class Answer(Fact):
-    ident=Field(str)
-    text=Field(str)
-    cf=Field(float,mandatory=False,default=1.0)
-class Question(Fact):
-    ident = Field(str)
-    questionType = Field(str)
-    valid = Field(list or int or str)
-    text = Field(str)
-    cfq=Field(str,mandatory=True,default="What is your cf?")
-class Ask(Fact):
-    questionIdent=Field(str)
-    cf=Field(float,mandatory=False,default=1.0)
-class User(Fact):
-    skintype = Field(str)
-    skintypeconf = Field(float)
-    skintone = Field(str)
-    skintoneconf = Field(float)
-    season = Field(str)
-    seasonconf = Field(float)
-    routinetype = Field(str)
-    routinetypeconf = Field(float)
-    sensitivity = Field(str)
-    sensitivityconf = Field(float)
-    sensitivitydetails = Field(str)
-    sensitivitydetailsconf = Field(float)
-    have_acne = Field(str)
-    have_acneconf = Field(float)
-    # noore's notess: i think we should delete acne dets
-    acnedetails = Field(str)
-    acnedetailsconf = Field(float)
-    skindeffects = Field(str)
-    skindeffectsconf = Field(float)
-    skincondition = Field(str)
-    skinconditionconf = Field(float)
-    deffectsdetails = Field(str)
-    deffectsdetailsconf = Field(float)
-    age = Field(str)
-    ageconf = Field(float)
-    gender = Field(str)
-    genderconf = Field(float)
-    pregnancy = Field(str)
-    pregnancyconf = Field(float)
-    breastfeeding = Field(str)
-    breastfeedingconf = Field(float)
-
-class Recommendations(Fact):
-     product = Field(str)
-     ingredients = Field(list)
-     reason = Field(str)
-     avoidance = Field(list),
-     conf=Field(float)
-
+from FactClasses import *
 class SkinCareExpertSystem(KnowledgeEngine):
     def __init__(self):
         super().__init__()
@@ -77,6 +26,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
         # yield Question(question='What is your gender? (1: Female, 2: Male)', field='gender')
         # Noore ways (from labs)
         yield Question(
+            qid="1",
             ident="Skin Type",
             questionType="multi",
             valid=["dry","oily","normal","combination"],
@@ -84,6 +34,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
             cfq="What is your cf?"
         )
         yield Question(
+            qid="2",
             ident="SkinTone",
             questionType="multi",
             valid=["fair","medium","dark"],
@@ -91,6 +42,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
             cfq="What is your cf?"
         )
         yield Question(
+            qid="3",
             ident="Gender",
             questionType="multi",
             valid=["female","male"],
@@ -98,6 +50,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
             cfq="What is your cf?"
         )
         yield Question(
+            qid="4",
             ident="pregnancy",
             questionType="multi",
             valid=["yes","no"],
@@ -105,6 +58,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
             cfq="What is your cf?"
         )
         yield Question(
+            qid="5",
             ident="Acne",
             questionType="multi",
             valid=["yes","no"],
@@ -112,6 +66,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
             cfq="What is your cf?"
         )
         yield Question(
+            qid="6",
             ident="Age",
             questionType="multi",
             valid=["young","adult","mature"],
@@ -121,6 +76,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
         ## noore's notes: im against putting season because again seasons doesn's represent real
         # enviroment temperature , instead we should use temperature or enviroment
         yield Question(
+            qid="7",
             ident="season",
             questionType="multi",
             valid=["summer","winter","spring","automn"],
@@ -128,6 +84,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
             cfq="What is your cf?"
         )
         yield Question(
+            qid="8",
             ident="routine",
             questionType="multi",
             valid=["morning","night","both"],
@@ -135,6 +92,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
             cfq="What is your cf?"
         )
         yield Question(
+            qid="9",
             ident="sensitvity",
             questionType="multi",
             valid=["yes","no"],
@@ -143,6 +101,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
         )
         # @Laila : fill these informations 🤝,and dont remove Not any keep it as a choice
         yield Question(
+            qid="10",
             ident="sensitvity details",
             questionType="multi",
             valid=["Not any","allergy to salicylic acid","Fragrance Allergy","Food","Chemicals","Preservative"],
@@ -150,6 +109,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
             cfq="What is your cf?"
         )
         yield Question(
+            qid="11",
             ident="skin condition",
             questionType="multi",
             valid=["Not any","Rosacea","Eczema","Perioral Dermatitis","Periorific Dermatitis","Seborrheic Dermatitis (scalp)","Seborrheic Dermatitis (face)"],
@@ -157,6 +117,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
             cfq="What is your cf?"
         )
         yield Question(
+            qid="12",
             ident="acne details",
             questionType="multi",
             valid=["Not any","moderte","severe"],
@@ -165,6 +126,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
         )
         
         yield Question(
+            qid="13",
             ident="skin defects",
             questionType="multi",
             valid=["yes","no"],
@@ -173,6 +135,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
         )
         # @laila fill these up too please 👐
         yield Question(
+            qid="14",
             ident="skin defects details",
             questionType="multi",
             valid=["Not any","yes","no"],
@@ -972,6 +935,8 @@ Help manage acne breakouts.'''
         'avoidance': moisturizer_avoidance,
         'confidence': cf,
         })
+        # this 
+        
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),have_acne=L("no"),sensitivitydetails=~L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer3d(self,cf1,cf2,cf3):

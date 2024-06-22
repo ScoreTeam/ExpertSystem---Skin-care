@@ -1,0 +1,116 @@
+[
+    {
+        "qid": "1",
+        "ident": "SkinType",
+        "questionType": "multi",
+        "valid": ["dry", "oily", "normal", "combination"],
+        "text": "What is your skin type?",
+        "cfq": "What is your cf?"
+    },
+    {
+        "qid": "2",
+        "ident": "SkinTone",
+        "questionType": "multi",
+        "valid": ["fair", "medium", "dark"],
+        "text": "What is your skin tone?",
+        "cfq": "What is your cf?"
+    },
+    {
+        "qid": "3",
+        "ident": "Gender",
+        "questionType": "multi",
+        "valid": ["female", "male"],
+        "text": "What is your gender sir/mam?",
+        "cfq": "What is your cf?"
+    },
+    {
+        "qid": "4",
+        "ident": "pregnancy",
+        "questionType": "multi",
+        "valid": ["yes", "no"],
+        "text": "Are you pregnant or currently breastfeeding?",
+        "cfq": "What is your cf?"
+    },
+    {
+        "qid": "5",
+        "ident": "Age",
+        "questionType": "multi",
+        "valid": ["young", "adult", "mature"],
+        "text": "How old are you?",
+        "cfq": "What is your cf?"
+    },
+    {
+        "qid": "6",
+        "ident": "season",
+        "questionType": "multi",
+        "valid": ["summer", "winter", "spring", "autumn"],
+        "text": "What is the current season in your location?",
+        "cfq": "What is your cf?"
+    },
+    {
+        "qid": "7",
+        "ident": "routine",
+        "questionType": "multi",
+        "valid": ["morning", "night", "both"],
+        "text": "What type of routine are you looking for?",
+        "cfq": "What is your cf?"
+    },
+   
+    {
+        "qid": "8",
+        "ident": "sensitivityDetails",
+        "questionType": "multi",
+        "valid": ["Not any", "allergy to salicylic acid", "Fragrance Allergy", "Food", "Chemicals", "Preservative"],
+        "text": "Provide sensitivity details?",
+        "cfq": "What is your cf?"
+    },
+    {
+        "qid": "9",
+        "ident": "how confident are you of that answer?",
+        "questionType": "multi",
+        "valid": ["0.0","0.2","0.4","0.6","0.8", "1.0"],
+        "text": "how confident are you of that answer?",
+        "cfq": "What is your cf?"
+    },
+    {
+        "qid": "10",
+        "ident": "skinCondition",
+        "questionType": "multi",
+        "valid": ["Not any", "Rosacea", "Eczema", "Perioral Dermatitis", "Periorific Dermatitis", "Seborrheic Dermatitis (scalp)", "Seborrheic Dermatitis (face)"],
+        "text": "Do you have any of those skin conditions?",
+        "cfq": "What is your cf?"
+    },
+    {
+        "qid": "11",
+        "ident": "how confident are you of that answer?",
+        "questionType": "multi",
+        "valid": ["0.0","0.2","0.4","0.6","0.8", "1.0"],
+        "text": "how confident are you of that answer?",
+        "cfq": "What is your cf?"
+    },
+    {
+        "qid": "12",
+        "ident": "Acne",
+        "questionType": "multi",
+        "valid": ["yes", "no"],
+        "text": "Do you happen to have acne?",
+        "cfq": "What is your cf?"
+    },
+    {
+        "qid": "13",
+        "ident": "acneDetails",
+        "questionType": "multi",
+        "valid": ["Not any", "Mild", "Moderate","Profound","Critical","Intense","Extreme","Severe"],
+        "text": "How bad is your acne?",
+        "cfq": "What is your cf?"
+    },
+    {
+        "qid": "14",
+        "ident": "how confident are you of that answer?",
+        "questionType": "multi",
+        "valid": ["0.0","0.2","0.4","0.6","0.8", "1.0"],
+        "text": "how confident are you of that answer?",
+        "cfq": "What is your cf?"
+    }
+]
+
