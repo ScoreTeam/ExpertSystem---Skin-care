@@ -76,7 +76,7 @@
         "qid": "10",
         "ident": "skinCondition",
         "questionType": "multi",
-        "valid": ["Not any", "Rosacea", "Eczema", "Perioral Dermatitis", "Periorific Dermatitis", "Seborrheic Dermatitis (scalp)", "Seborrheic Dermatitis (face)"],
+        "valid": ["Not any", "Rosacea", "Eczema", "Perioral Dermatitis", "Periorific Dermatitis", "Seborrheic Dermatitis (scalp)", "Seborrheic Dermatitis (face)","hyperpigmentation"],
         "text": "Do you have any of those skin conditions?",
         "cfq": "What is your cf?"
     },

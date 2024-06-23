@@ -5,9 +5,10 @@ import json
 from FactClasses import *
 from ProjectV2 import *
 from collections import defaultdict
+from styles import configure_styles
 
-intro = 'logo2.png'
-small = 'score.png'
+intro = 'Assets/logo2.png'
+small = 'Assets/score2.png'
 background_img = 'background.png'  
 
 with open('Qu.json', 'r') as f:
@@ -26,24 +27,46 @@ class QuestionnaireApp:
         self.intro_img = None
         self.small_img = None
         self.background_img = None  
+        configure_styles()  # Apply styles
         self.show_intro_screen()
-        self.delay=2000
-        
+        self.delay = 2000
 
     def display_question(self):
-        if self.current_question_index < len(questions):
-            current_question = questions[self.current_question_index]
-            self.question_label.config(text=current_question['text'])
+       if self.current_question_index < len(questions):
+           current_question = questions[self.current_question_index]
+           self.question_label.config(text=current_question['text'])
 
-            for widget in self.answer_frame.winfo_children():
-                widget.destroy()
-            self.selected_answer = tk.StringVar(value=current_question['valid'][0])
-            for i, answer in enumerate(current_question['valid']):
-                rb = ttk.Radiobutton(self.answer_frame, text=answer, variable=self.selected_answer, value=answer, style="Custom.TRadiobutton")
-                rb.pack(anchor=tk.W, pady=5)
-        else:
-            self.show_loading_page()
+           for widget in self.answer_frame.winfo_children():
+               widget.destroy()
+               
+           self.radio_buttons = []  # To store radio button widgets
+           self.selected_answer = tk.StringVar(value=current_question['valid'][0])
+           for i, answer in enumerate(current_question['valid']):
+               rb = ttk.Radiobutton(self.answer_frame, text=answer, variable=self.selected_answer, value=answer, style="Custom.TRadiobutton")
+               rb.pack(anchor=tk.W, pady=5)
+               self.radio_buttons.append(rb)
 
+           # Bind arrow keys to navigate through radio buttons
+           self.master.bind('<Up>', self.select_previous)
+           self.master.bind('<Down>', self.select_next)
+       else:
+           self.show_loading_page()
+
+    def select_previous(self, event):
+       current_value = self.selected_answer.get()
+       for i, rb in enumerate(self.radio_buttons):
+           if rb.cget('value') == current_value:
+               if i > 0:
+                   self.selected_answer.set(self.radio_buttons[i-1].cget('value'))
+               break
+
+    def select_next(self, event):
+       current_value = self.selected_answer.get()
+       for i, rb in enumerate(self.radio_buttons):
+           if rb.cget('value') == current_value:
+               if i < len(self.radio_buttons) - 1:
+                   self.selected_answer.set(self.radio_buttons[i+1].cget('value'))
+               break
     def next_question(self):
         if hasattr(self, 'selected_answer') and self.selected_answer.get():
             user_answers.append(self.selected_answer.get())
@@ -53,12 +76,15 @@ class QuestionnaireApp:
             messagebox.showwarning("No Answer Selected", "Please select an answer.")
 
     def show_loading_page(self):
-        self.question_label.config(text="Please wait while we process your answers...", font=("Arial", 18))
+        self.master.unbind_all('<Key>')
+        self.master.unbind('<Return>') 
+
+        self.question_label.config(text="Please wait while we process your answers...", font=("ATrebuchet MS", 18,'bold'))
 
         for widget in self.answer_frame.winfo_children():
             widget.destroy()
 
-        self.progress_bar = ttk.Progressbar(self.answer_frame, mode='indeterminate')
+        self.progress_bar = ttk.Progressbar(self.answer_frame, mode='indeterminate', style='Green.Horizontal.TProgressbar')
         self.progress_bar.pack(pady=20)
         self.progress_bar.start()
         self.master.update()
@@ -67,7 +93,10 @@ class QuestionnaireApp:
     def stop_loading_page(self):
         self.progress_bar.stop()
         self.progress_bar.destroy()
+        self.master.bind('<Return>', lambda event: self.next_question())
+
         self.show_recommendations()
+
 
     def show_recommendations(self):
         self.display_recommendation()
@@ -77,32 +106,29 @@ class QuestionnaireApp:
     def display_recommendation(self):
         if self.current_recommendation_index < len(recommendations):
             recommendation = recommendations[self.current_recommendation_index]
+            confvalue=str(recommendation.get('confidence','N/A'))[:5]
             recommendation_text = (
                 f"Product: {recommendation['product']}\n\n"
                 f"Ingredients: {', '.join(recommendation['ingredients'])}\n\n"
                 f"Reason: {recommendation['reason']}\n\n"
                 f"Avoidance: {', '.join(recommendation['avoidance'])}\n\n"
-                f"Confidence: {recommendation.get('confidence', 'N/A')}"
+                f"Confidence: {confvalue}"
             )
-            self.question_label.config(text="Recommendations:", font=("Arial", 18))
+            self.question_label.config(text="Recommendations:", font=("Trebuchet MS", 18,'bold'))
             for widget in self.answer_frame.winfo_children():
                 widget.destroy()
 
-            recommendation_label = ttk.Label(self.answer_frame, text=recommendation_text, wraplength=800, padding="10", font=("Arial", 14))
+            recommendation_label = ttk.Label(self.answer_frame, text=recommendation_text, wraplength=800, padding="10", font=("Trebuchet MS", 14))
             recommendation_label.pack(anchor=tk.W)
         else:
             messagebox.showinfo("End of Recommendations", "You have viewed all the recommendations.\nThank you for using our app 💚",)
-            self.master.after(self.delay,self.master.quit())
-            # self.master.quit()
+            self.master.after(self.delay, self.master.quit)
 
     def next_recommendation(self):
         self.current_recommendation_index += 1
         self.display_recommendation()
-    
+
     def show_intro_screen(self):
-        style = ttk.Style()
-        style.configure("Intro.TLabel", background="light green", font=('Arial', 20))
-        style.configure("Intro.TFrame", background="light green", font=('Arial', 30), padding=20)
         intro_frame = ttk.Frame(self.master, style="Intro.TFrame")
         intro_frame.pack(fill=tk.BOTH, expand=True)
 
@@ -123,20 +149,16 @@ class QuestionnaireApp:
 
         self.master.after(2000, lambda: self.show_intro_page(intro_frame))
 
-    def read_intro_text(self,type):
-        if type == "intro" :
+    def read_intro_text(self, type):
+        if type == "intro":
             with open('intro.txt', 'r') as file:
                 return file.read()
-        else :
+        else:
             with open('outro.txt', 'r') as file:
                 return file.read()
 
     def show_intro_page(self, previous_frame):
         previous_frame.destroy()
-
-        style = ttk.Style()
-        style.configure('IP.TLabel', background="light green", font=('Arial', 18), padding=20)
-        style.configure('IP.TButton', font=('Arial', 18), padding=10, background='lightblue')
 
         intro_text = self.read_intro_text("intro")
 
@@ -165,12 +187,10 @@ class QuestionnaireApp:
         inner_frame.grid_columnconfigure(0, weight=1)
 
         self.master.after(self.delay, lambda: self.start_questionnaire(main_frame))
+
     def show_outro_page(self, previous_frame):
         previous_frame.destroy()
-        style = ttk.Style()
-        style.configure('IP.TLabel', background="light green", font=('Arial', 18), padding=20)
-        style.configure('IP.TButton', font=('Arial', 18), padding=10, background='lightblue')
-
+        
         intro_text = self.read_intro_text("outro")
         main_frame = tk.Frame(self.master, bg="light green", padx=0, pady=0) 
         main_frame.grid(row=0, column=0, sticky="nsew")
@@ -196,7 +216,6 @@ class QuestionnaireApp:
 
         self.master.after(self.delay, lambda: self.start_questionnaire(main_frame))
 
-
     def start_questionnaire(self, previous_frame):
         previous_frame.destroy()
 
@@ -209,14 +228,6 @@ class QuestionnaireApp:
         bg_label = tk.Label(self.main_frame, image=self.background_img)
         bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-        style = ttk.Style()
-        style.configure("TFrame", background="light green", font=('Arial', 30), padding=20)
-        style.configure('TLabel', background="light green", font=('Arial', 18), padding=20)
-        style.configure('TButton', font=('Arial', 18), padding=10, background='lightblue')
-        style.configure('Custom.TRadiobutton', font=('Arial', 16), background='lightgreen')
-        style.map('Custom.TRadiobutton',
-                  background=[('active', 'lightgray'), ('disabled', 'lightgreen')])
-
         self.inner_frame = ttk.Frame(self.main_frame, padding="20", style='TFrame')
         self.inner_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
@@ -226,11 +237,9 @@ class QuestionnaireApp:
         self.answer_frame = ttk.Frame(self.inner_frame, style="TFrame")
         self.answer_frame.grid(row=1, column=0, padx=20, pady=20, sticky=(tk.N, tk.S, tk.E, tk.W))
 
-
         self.display_question()
 
         self.master.bind('<Return>', lambda event: self.next_question())
-        
 
 if __name__ == "__main__":
     root = tk.Tk()

@@ -4,3 +4,6 @@ notes.txt
 Project.py
 Ps.py
 main.py
+build/
+dist/
+tki.specs
