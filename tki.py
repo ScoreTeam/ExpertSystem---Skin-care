@@ -9,7 +9,8 @@ from styles import configure_styles
 
 intro = 'Assets/logo2.png'
 small = 'Assets/score2.png'
-background_img = 'background.png'  
+background_img = 'Assets/background4.png'  
+# Assets/background3.png for the frame
 
 with open('Qu.json', 'r') as f:
     questions = json.load(f)
