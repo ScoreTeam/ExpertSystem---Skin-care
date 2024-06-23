@@ -27,7 +27,7 @@ class QuestionnaireApp:
         self.intro_img = None
         self.small_img = None
         self.background_img = None  
-        configure_styles()  # Apply styles
+        configure_styles()  
         self.show_intro_screen()
         self.delay = 2000
 
@@ -39,14 +39,14 @@ class QuestionnaireApp:
            for widget in self.answer_frame.winfo_children():
                widget.destroy()
                
-           self.radio_buttons = []  # To store radio button widgets
+           self.radio_buttons = []  
            self.selected_answer = tk.StringVar(value=current_question['valid'][0])
            for i, answer in enumerate(current_question['valid']):
                rb = ttk.Radiobutton(self.answer_frame, text=answer, variable=self.selected_answer, value=answer, style="Custom.TRadiobutton")
                rb.pack(anchor=tk.W, pady=5)
                self.radio_buttons.append(rb)
 
-           # Bind arrow keys to navigate through radio buttons
+         
            self.master.bind('<Up>', self.select_previous)
            self.master.bind('<Down>', self.select_next)
        else:
