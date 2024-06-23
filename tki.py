@@ -7,8 +7,8 @@ from ProjectV2 import *
 from collections import defaultdict
 from styles import configure_styles
 
-intro = 'logo2.png'
-small = 'score.png'
+intro = 'Assets/logo2.png'
+small = 'Assets/score2.png'
 background_img = 'background.png'  
 
 with open('Qu.json', 'r') as f:

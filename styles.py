@@ -17,7 +17,7 @@ def configure_styles():
     style.configure('TButton', font=('Arial', 18), padding=10, background='lightblue')
     
     style.configure('Custom.TRadiobutton', font=('Comic Sans MS', 18,), background='lightgreen')
-    style.map('Custom.TRadiobutton', background=[('active', 'lightgray'), ('disabled', 'lightgreen')],cursor="circle")
+    style.map('Custom.TRadiobutton', background=[('active', 'green'), ('disabled', 'lightgreen')],cursor="circle")
     
     # Default style
     style.configure('TProgressbar', thickness=20)
