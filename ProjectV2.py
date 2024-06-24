@@ -1480,6 +1480,19 @@ Management of acne breakouts (considering sensitivities).'''
         'confidence': 1.0,
         })
         self.declare(Recommendations(info="INFO",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
+    @Rule(User(skintype=L("oily")))
+    def USA(self):
+        cleanser_reason = '''The US wants to give you freedom'''
+        cleanser_avoidance = ['Dictatorship','socialism']
+        cleanser_ingredients = ['Oil','Democracy'] 
+        self.recommendations.append({
+            'product': 'USA',
+            'ingredients': cleanser_ingredients,
+            'reason': cleanser_reason,
+            'avoidance': cleanser_avoidance,
+            'confidence': 1.0,
+        })
+        self.declare(Recommendations(product="USA", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=1.0))
     @Rule(User(skintype=~L("default")),salience=-1)
     def Default(self):
         # with open('recommendations.json', 'a') as json_file:
