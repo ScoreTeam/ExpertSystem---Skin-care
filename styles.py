@@ -5,18 +5,19 @@ from tkinter import ttk
 def configure_styles():
     style = ttk.Style()
     
-    style.configure("Intro.TLabel", background="light green", font=('Arial', 20))
-    style.configure("Intro.TFrame", background="light green", font=('Arial', 30), padding=20)
+    style.configure("Intro.TLabel", background="#a2f2bd", font=('Arial', 20))
+    style.configure("Intro.TFrame", background="#a2f2bd", font=('Arial', 30), padding=20)
     
-    style.configure('IP.TLabel', background="light green", font=('Trebuchet MS', 18), padding=20)
-    style.configure('IP.TButton', font=('Arial', 18), padding=10, background='lightblue')
+    style.configure('IP.TLabel', background="#a2f2bd", font=('Trebuchet MS', 18), padding=20)
+    style.configure('IP.TButton', font=('Arial', 18), padding=10, background="#a2f2bd")
     
-    style.configure("TFrame", background="light green", font=('Arial', 30), padding=20,borderwidth=5,relif='ridge')
+    # style.configure("TFrame", background="light green", font=('Arial', 30), padding=20,borderwidth=5,relif='ridge')
+    style.configure("TFrame", background="#a2f2bd", font=('Arial', 30), padding=20, )
     # style.configure("TFrame", background="light green", font=('Arial', 30), padding=20)
-    style.configure('TLabel', background="light green", font=('Trebuchet MS', 18,'bold'), padding=20)
-    style.configure('TButton', font=('Arial', 18), padding=10, background='lightblue')
+    style.configure('TLabel', background="#a2f2bd", font=('Trebuchet MS', 18,'bold'), padding=20)
+    style.configure('TButton', font=('Arial', 18), padding=10, background="#a2f2bd")
     
-    style.configure('Custom.TRadiobutton', font=('Comic Sans MS', 18,), background='lightgreen')
+    style.configure('Custom.TRadiobutton', font=('Comic Sans MS', 18,), background="#a2f2bd")
     style.map('Custom.TRadiobutton', background=[('active', 'green'), ('disabled', 'lightgreen')],cursor="circle")
     
     # Default style
