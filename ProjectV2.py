@@ -6,44 +6,28 @@ from FactClasses import *
 class SkinCareExpertSystem(KnowledgeEngine):
     def __init__(self):
         super().__init__()
-        # this is for the tree @nour we can still do it if we have time ✌
-        # self.graph = graphviz.Digraph(comment='Skin Care Expert System')
         self.recommendations = []
         self.valid_cf_values=[-1.0,-0.8,-0.6,-0.4,-0.2,0,0.2,0.4,0.6,0.8, 1]
-        # keep it just in case:
-        # ----
-        # self.CleanserRecommendations = []
-        # self.MoisturizerRecommendations = []
-        # self.SunscreenRecommendations = []
-        # self.GenderRec = []
-        # self.SenRec = []
-        # self.pregrec = []
-        # ----
-        
-        
-
-    
-        
-#   User info 
-#   using the rules we can assign the user details (it better approach and give us better and cleaner code)
-#   also it can help us when it comes to expanding 
-    def Userinfo(self,genderr,acne,skintype,skintone,age,pregnancyr,acnedets,skindefs,sdd,sensitvityd,sensitvitys,seasons,skinconditionb,routines,cf1,cf2,cf3,cf4,cf5,cf6,cf7,cf8,cf9,cf10,cf11,cf12,cf13,cf14): 
-        self.declare( User(gender=genderr,genderconf=cf1
-                           ,skintype=skintype,
-                        skintypeconf=cf4,
-                    skintone=skintone,skintoneconf=cf5,season=seasons,seasonconf=cf13,
-                    routinetype=routines,routinetypeconf=cf12,
-                    sensitivity=sensitvitys,sensitivityconf=cf11,
-                    sensitivitydetails=sensitvityd,sensitivitydetailsconf=cf10,
-                    have_acne=acne,have_acneconf=cf3,
-                    acnedetails=acnedets,acnedetailsconf=cf7,
-                    skindeffects=skindefs,skindeffectsconf=cf8,
-                    skincondition=skinconditionb,skinconditionconf=cf14,
-                    deffectsdetails=sdd,deffectsdetailsconf=cf9,
-                    age=age,ageconf=cf6,
-                    pregnancy=pregnancyr,pregnancyconf=cf2,
-                    # breastfeeding=cf15
-                    ))
+# #   User info 
+# #   using the rules we can assign the user details (it better approach and give us better and cleaner code)
+# #   also it can help us when it comes to expanding 
+#     def Userinfo(self,genderr,acne,skintype,skintone,age,pregnancyr,acnedets,skindefs,sdd,sensitvityd,sensitvitys,seasons,skinconditionb,routines,cf1,cf2,cf3,cf4,cf5,cf6,cf7,cf8,cf9,cf10,cf11,cf12,cf13,cf14): 
+#         self.declare( User(gender=genderr,genderconf=cf1
+#                            ,skintype=skintype,
+#                         skintypeconf=cf4,
+#                     skintone=skintone,skintoneconf=cf5,season=seasons,seasonconf=cf13,
+#                     routinetype=routines,routinetypeconf=cf12,
+#                     sensitivity=sensitvitys,sensitivityconf=cf11,
+#                     sensitivitydetails=sensitvityd,sensitivitydetailsconf=cf10,
+#                     have_acne=acne,have_acneconf=cf3,
+#                     acnedetails=acnedets,acnedetailsconf=cf7,
+#                     skindeffects=skindefs,skindeffectsconf=cf8,
+#                     skincondition=skinconditionb,skinconditionconf=cf14,
+#                     deffectsdetails=sdd,deffectsdetailsconf=cf9,
+#                     age=age,ageconf=cf6,
+#                     pregnancy=pregnancyr,pregnancyconf=cf2,
+#                     # breastfeeding=cf15
+#                     ))
     @Rule( Answer(ident=L("Gender"),text=MATCH.genderr,cf=MATCH.cf1),
           Answer(ident=L("pregnancy"),text=MATCH.pregnancyr,cf=MATCH.cf2),
           Answer(ident=L("Acne"),text=MATCH.acne,cf=MATCH.cf3),
@@ -61,32 +45,10 @@ class SkinCareExpertSystem(KnowledgeEngine):
           
           )
 
-    # def Userinfo(self,genderr,acne,skintype,skintone,age,pregnancyr,acnedets,skindefs,sdd,sensitvityd,sensitvitys,seasons,skinconditionb):
     def Userinfo(self,genderr,acne,skintype,skintone,age,pregnancyr,acnedets,skindefs,sdd,sensitvityd,sensitvitys,seasons,skinconditionb,routines,cf1,cf2,cf3,cf4,cf5,cf6,cf7,cf8,cf9,cf10,cf11,cf12,cf13,cf14): 
-        
-
-        print("yoink3")
-        self.declare( User(gender=genderr,genderconf=cf1
-                           ,skintype=skintype,
-                        skintypeconf=cf4,
-                    skintone=skintone,skintoneconf=cf5,season=seasons,seasonconf=cf13,
-                    routinetype=routines,routinetypeconf=cf12,
-                    sensitivity=sensitvitys,sensitivityconf=cf11,
-                    sensitivitydetails=sensitvityd,sensitivitydetailsconf=cf10,
-                    have_acne=acne,have_acneconf=cf3,
-                    acnedetails=acnedets,acnedetailsconf=cf7,
-                    skindeffects=skindefs,skindeffectsconf=cf8,
-                    skincondition=skinconditionb,skinconditionconf=cf14,
-                    deffectsdetails=sdd,deffectsdetailsconf=cf9,
-                    age=age,ageconf=cf6,
-                    pregnancy=pregnancyr,pregnancyconf=cf2,
-                    # breastfeeding=cf15
-                    ))
-        
-            
-
-        
-    
+        self.declare( User(gender=genderr,genderconf=cf1,skintype=skintype,skintypeconf=cf4,skintone=skintone,skintoneconf=cf5,season=seasons,seasonconf=cf13,routinetype=routines,routinetypeconf=cf12,sensitivity=sensitvitys,sensitivityconf=cf11, sensitivitydetails=sensitvityd,sensitivitydetailsconf=cf10, have_acne=acne,have_acneconf=cf3, acnedetails=acnedets,acnedetailsconf=cf7, skindeffects=skindefs,skindeffectsconf=cf8, skincondition=skinconditionb,skinconditionconf=cf14, deffectsdetails=sdd,deffectsdetailsconf=cf9, age=age,ageconf=cf6, pregnancy=pregnancyr,pregnancyconf=cf2,
+                           # breastfeeding=cf15
+                           ))
 # --------------------------------------------------------------------------------------------------------
 # Products assignment
 # in here we can set the products depending on the user info
@@ -101,14 +63,8 @@ class SkinCareExpertSystem(KnowledgeEngine):
         cleanser_avoidance = ['Harsh Surfactants', 'Artificial Fragrances']
         cf = 0.9 *min(cf1,cf2)
 
-        self.recommendations.append({
-            'product': 'Cleanser',
-            'ingredients': cleanser_ingredients,
-            'reason': cleanser_reason,
-            'avoidance': cleanser_avoidance,
-            'confidence': cf,
-        })
-        self.declare(Recommendations(product="Cleanser",    ingredients=cleanser_ingredients, reason=cleanser_reason,  avoidance=cleanser_avoidance, conf=cf))
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
+        self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients, reason=cleanser_reason,  avoidance=cleanser_avoidance, conf=cf))
     
     @Rule(User(skintype=L("oily"),skincondition=L("Rosacea"),sensitivitydetails=L("Not any"),skinconditionconf=MATCH.cf1,sensitivityconf=MATCH.cf2))
     def Oilycleanser1(self,cf1,cf2):
@@ -117,13 +73,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
         cleanser_avoidance = ['Harsh Sulfates', 'Alcohol', 'Fragrance','Exfoliating Scrubs']
         cf = 0.9 *min(cf1,cf2)
 
-        self.recommendations.append({
-            'product': 'Cleanser',
-            'ingredients': cleanser_ingredients,
-            'reason': cleanser_reason,
-            'avoidance': cleanser_avoidance,
-            'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=cf))
     @Rule(User(skintype=L("oily"),skincondition=L("Eczema"),sensitivitydetails=L("Not any"),skinconditionconf=MATCH.cf1,sensitivityconf=MATCH.cf2))
     def Oilycleanser2(self,cf1,cf2):
@@ -132,13 +82,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
         cleanser_avoidance = ['Fragrance', 'Alcohol', 'Soap','Exfoliating Scrubs','Harsh Sulfates']
         cf = 0.9 *min(cf1,cf2)
 
-        self.recommendations.append({
-            'product': 'Cleanser',
-            'ingredients': cleanser_ingredients,
-            'reason': cleanser_reason,
-            'avoidance': cleanser_avoidance,
-            'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=cf))
     @Rule(User(skintype=L("oily"),skincondition=L("Not any"),sensitivitydetails=L("Fragrance Allergy"),skinconditionconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2))
     def Oilycleanser3(self,cf1,cf2):
@@ -147,14 +91,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
         cleanser_ingredients = ['Salicylic Acid', 'Glycolic Acid']  
         cleanser_avoidance = ['Artificial Fragrances']
         cf = 0.9 *min(cf1,cf2)
-
-        self.recommendations.append({
-            'product': 'Cleanser',
-            'ingredients': cleanser_ingredients,
-            'reason': cleanser_reason,
-            'avoidance': cleanser_avoidance,
-            'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=cf))
     @Rule(User(skintype=L("oily"),skincondition=L("Not any"),sensitivitydetails=L("allergy to salicylic acid"),skinconditionconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2))
     def Oilycleanser4(self,cf1,cf2):
@@ -162,13 +99,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
         cleanser_avoidance = ['Salicylic Acid (Obviously!)','Harsh Sulfates','Alcohol','Heavy Oils']
         cleanser_ingredients = ['Gentle Exfoliants', 'Soothing Ingredients','Hydrating Ingredients','Clay Masks (Optional)'] 
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-            'product': 'Cleanser',
-            'ingredients': cleanser_ingredients,
-            'reason': cleanser_reason,
-            'avoidance': cleanser_avoidance,
-            'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=cf))
     @Rule(User(skintype=L("oily"),skincondition=L("Rosacea"),sensitivitydetails=~L("Not any"),skinconditionconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2))
     def Oilycleanser6(self,cf1,cf2):
@@ -176,13 +107,7 @@ class SkinCareExpertSystem(KnowledgeEngine):
         cleanser_avoidance = ['Fragrance','Harsh Sulfates','Alcohol','Comedogenic Oils']
         cleanser_ingredients = ['Gentle Exfoliants', 'Sulfates (SLS/SLES) - Limited (if tolerated)','HBetaine (Coco-Betaine, etc.)','Hydrating Ingredients(Glycerin)','Soothing Ingredients (for Rosacea):Green Tea Extract-Colloidal Oatmeal,','Non-comedogenic:'] 
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-            'product': 'Cleanser',
-            'ingredients': cleanser_ingredients,
-            'reason': cleanser_reason,
-            'avoidance': cleanser_avoidance,
-            'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=cf))
     @Rule(User(skintype=L("oily"),skincondition=L("Eczema"),sensitivitydetails=~L("Not any"),skinconditionconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2))
     def Oilycleanser7(self,cf1,cf2):
@@ -194,29 +119,17 @@ Skin Barrier Repair: Supports the skin's natural barrier function, crucial for E
         cleanser_avoidance = ['Fragrance','Harsh Sulfates','Alcohol','Comedogenic Oils']
         cleanser_ingredients = ['Gentle Exfoliants', 'Sulfates (SLS/SLES) - Limited (if tolerated)','HBetaine (Coco-Betaine, etc.)','Hydrating Ingredients(Glycerin)','Soothing Ingredients:Oat Milk','Non-comedogenic:'] 
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-            'product': 'Cleanser',
-            'ingredients': cleanser_ingredients,
-            'reason': cleanser_reason,
-            'avoidance': cleanser_avoidance,
-            'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=cf))
 
-    # test
+    
     @Rule(User(skintype=L("dry"),skincondition=L("Not any"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def Drycleanser1(self,cf1,cf2):
         cleanser_reason = "Gentle Cleansing:  A gentle cleanser removes dirt, impurities, and makeup without stripping away the already-limited moisture in dry skin. Maintain Moisture Barrier: Dry,  A gentle cleanser helps prevent further dryness and irritation."
         cleanser_ingredients = ['Hydrating Ingredients :Hyaluronic acid, ceramides', 'Soothing Ingredients :Chamomile,Creamy Cleansers:','Gentle Cleansers:']
         cleanser_avoidance = ['Harsh Sulfates', 'Alcohol','Fragrance']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),skincondition=L("Rosacea"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def Drycleanser2(self,cf1,cf2):
@@ -224,13 +137,7 @@ Skin Barrier Repair: Supports the skin's natural barrier function, crucial for E
         cleanser_ingredients = ['Hydrating Ingredients :Hyaluronic acid, ceramides', 'Soothing Ingredients :Chamomile,Creamy Cleansers:','Gentle Cleansers:']
         cleanser_avoidance = ['Harsh Sulfates', 'Alcohol','Fragrance']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),skincondition=L("Eczema"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def Drycleanser3(self,cf1,cf2):
@@ -238,13 +145,7 @@ Skin Barrier Repair: Supports the skin's natural barrier function, crucial for E
         cleanser_ingredients = ["Ultra-Hydrating Ingredients: Hyaluronic acid, ceramides,", "Emollients: Ingredients like shea butter, cocoa butter",'Fragrance-Free']
         cleanser_avoidance = ['Harsh Sulfates', 'Alcohol','Soap']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),skincondition=L("Not any"),sensitivitydetails=L("Fragrance Allergy"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def Drycleanser4(self,cf1,cf2):
@@ -252,13 +153,7 @@ Skin Barrier Repair: Supports the skin's natural barrier function, crucial for E
         cleanser_ingredients = ['Hydrating Ingredients: Hyaluronic acid', 'Fragrance-Free','Creamy or Ointment Cleansers']
         cleanser_avoidance = ['Fragrance (Obviously!)', 'Alcohol','Essential Oils']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),skincondition=L("Not any"),sensitivitydetails=L("allergy to salicylic acid"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def Drycleanser5(self,cf1,cf2):
@@ -266,13 +161,7 @@ Skin Barrier Repair: Supports the skin's natural barrier function, crucial for E
         cleanser_ingredients = ['Hydrating Ingredients: Hyaluronic acid', 'Emollients: Ingredients like shea butter, cocoa butter,','Gentle Cleansers:','Soothing Ingredients: Chamomile, calendula']
         cleanser_avoidance = ['Salicylic Acid (Obviously!)', 'Alcohol','Fragrance']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),skincondition=L("Rosacea"),sensitivitydetails=~L("Not any"),skinconditionconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2))
     def Drycleanser6(self,cf1,cf2):
@@ -283,13 +172,7 @@ Hydration: Provides moisture to replenish dry skin.'''
         cleanser_avoidance = ['Fragrance','Harsh Sulfates','Alcohol','Comedogenic Oils']
         cleanser_ingredients = ['Gentle Exfoliants', 'Sulfates (SLS/SLES) - Limited (if tolerated)','HBetaine (Coco-Betaine, etc.)','Hydrating Ingredients(Glycerin - Hyaluronic Acid - Creamy Cleansers)','Soothing Ingredients (for Rosacea):Green Tea Extract-Licorice Root Extract,','Non-comedogenic:'] 
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-            'product': 'Cleanser',
-            'ingredients': cleanser_ingredients,
-            'reason': cleanser_reason,
-            'avoidance': cleanser_avoidance,
-            'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=cf))
     @Rule(User(skintype=L("dry"),skincondition=L("Eczema"),sensitivitydetails=~L("Not any"),skinconditionconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2))
     def Drycleanser7(self,cf1,cf2):
@@ -300,15 +183,9 @@ Hydration and Skin Barrier Repair: Provides moisture to replenish dry skin and s
         cleanser_avoidance = ['Fragrance','Harsh Sulfates','Alcohol','Comedogenic Oils','Sulfates (SLS/SLES)','Soap']
         cleanser_ingredients = ['Gentle Exfoliants','Micellar Water (Fragrance-Free)','HBetaine (Coco-Betaine, etc.)','Hydrating Ingredients(Glycerin)','Soothing Ingredients:Oat Milk','Non-comedogenic:','Lotion or Cream Cleansers'] 
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-            'product': 'Cleanser',
-            'ingredients': cleanser_ingredients,
-            'reason': cleanser_reason,
-            'avoidance': cleanser_avoidance,
-            'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=cf))
-    # test
+    
     @Rule(User(skintype=L("combination"),skincondition=L("Not any"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def combinationcleanser1(self,cf1,cf2):
         cleanser_reason = 'A good cleanser is essential for removing dirt, oil, and impurities from the skin, helping to unclog pores and prevent breakouts.'
@@ -316,13 +193,7 @@ Hydration and Skin Barrier Repair: Provides moisture to replenish dry skin and s
         cleanser_ingredients = ['Gentle Cleansing Agents', 'Botanical Extracts']
         cleanser_avoidance = ['Harsh Exfoliants', 'Heavy Oils']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),skincondition=L("Rosacea"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def combinationcleanser2(self,cf1,cf2):
@@ -330,13 +201,7 @@ Hydration and Skin Barrier Repair: Provides moisture to replenish dry skin and s
         cleanser_ingredients = ['Balancing Ingredients: Niacinamide', 'Hydrating Ingredients: Hyaluronic acid or glycerin','Gentle Cleansers']
         cleanser_avoidance = ['Harsh Exfoliants', 'Heavy Oils','Harsh Sulfates','Alcohol','Fragrance']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),skincondition=L("Eczema"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def combinationcleanser3(self,cf1,cf2):
@@ -344,13 +209,7 @@ Hydration and Skin Barrier Repair: Provides moisture to replenish dry skin and s
         cleanser_ingredients = ['Balancing Ingredients: Niacinamide', 'Barrier Repair Ingredients: Ceramides and hyaluronic acid','Soothing Ingredients: Chamomile, calendula','Gentle Cleansers']
         cleanser_avoidance = ['Harsh Exfoliants','Harsh Sulfates','Alcohol','Fragrance']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),skincondition=L("Not any"),sensitivitydetails=L("Fragrance Allergy"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def combinationcleanser4(self,cf1,cf2):
@@ -358,13 +217,7 @@ Hydration and Skin Barrier Repair: Provides moisture to replenish dry skin and s
         cleanser_ingredients = ['Balancing Ingredients: Niacinamide', 'Hydrating Ingredients: Hyaluronic acid or glycerin','Gentle Cleansers']
         cleanser_avoidance = ['Fragrance (Obviously!)','Harsh Sulfates','Alcohol']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),skincondition=L("Not any"),sensitivitydetails=L("allergy to salicylic acid"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def combinationcleanser5(self,cf1,cf2):
@@ -372,13 +225,7 @@ Hydration and Skin Barrier Repair: Provides moisture to replenish dry skin and s
         cleanser_ingredients = ['Balancing Ingredients: Niacinamide','Gentle Cleansers']
         cleanser_avoidance = ['Fragrance (Obviously!)','Harsh Sulfates','Alcohol']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),skincondition=L("Rosacea"),sensitivitydetails=~L("Not any"),skinconditionconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2))
     def combinationcleanser6(self,cf1,cf2):
@@ -388,13 +235,7 @@ Soothing Relief: Calms redness and irritation associated with Rosacea.'''
         cleanser_avoidance = ['Fragrance','Harsh Sulfates','Alcohol','Comedogenic Oils']
         cleanser_ingredients = ['Gentle Exfoliants','Micellar Water (Oil-Free, Fragrance-Free) ','Low-Foaming Cream Cleansers', 'Sulfates (SLS/SLES) - Limited (if tolerated)','HBetaine (Coco-Betaine, etc.)','Hydrating Ingredients(Glycerin)','Soothing Ingredients (for Rosacea):Green Tea Extract-Licorice Root Extract,','Non-comedogenic:'] 
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-            'product': 'Cleanser',
-            'ingredients': cleanser_ingredients,
-            'reason': cleanser_reason,
-            'avoidance': cleanser_avoidance,
-            'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=cf))
     @Rule(User(skintype=L("combination"),skincondition=L("Eczema"),sensitivitydetails=~L("Not any"),skinconditionconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2))
     def combinationcleanser7(self,cf1,cf2):
@@ -404,15 +245,9 @@ Soothing Relief: Calms irritation and itching associated with Eczema.'''
         cleanser_avoidance = ['Fragrance','Harsh Sulfates','Alcohol','Comedogenic Oils','Sulfates (SLS/SLES)']
         cleanser_ingredients = ['Gentle Exfoliants','Micellar Water (Oil-Free, Fragrance-Free)','Lotion or Cream Cleansers','HBetaine (Coco-Betaine, etc.)','Hydrating Ingredients(Glycerin)','Soothing Ingredients:Oat Milk','Non-comedogenic:'] 
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-            'product': 'Cleanser',
-            'ingredients': cleanser_ingredients,
-            'reason': cleanser_reason,
-            'avoidance': cleanser_avoidance,
-            'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=cf))
-    # test
+    
     # @noores'note : make one for normal with Rosacea
     @Rule(User(skintype=L("normal"),skincondition=L("Not any"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def NormalCleanser1(self,cf1,cf2):
@@ -420,13 +255,7 @@ Soothing Relief: Calms irritation and itching associated with Eczema.'''
         cleanser_ingredients = ['Balancing Ingredients: Niacinamide',"Hydrating Ingredients (Optional)",'Gentle Cleansers']
         cleanser_avoidance = ['Fragrance ','Harsh Sulfates','Alcohol']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("normal"),skincondition=L("Eczema"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def NormalCleanser2(self,cf1,cf2):
@@ -434,13 +263,7 @@ Soothing Relief: Calms irritation and itching associated with Eczema.'''
         cleanser_ingredients = ['Barrier Repair Ingredients: Ceramides and hyaluronic acid',"Soothing Ingredients: Chamomile, calendula",'Gentle Cleansers']
         cleanser_avoidance = ['Fragrance ','Harsh Sulfates','Alcohol','Exfoliating Scrubs']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("normal"),skincondition=L("Rosacea"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def NormalCleanser3(self,cf1,cf2):
@@ -448,13 +271,7 @@ Soothing Relief: Calms irritation and itching associated with Eczema.'''
         cleanser_ingredients = ['Barrier Repair Ingredients: Ceramides and hyaluronic acid',"Soothing Ingredients: Chamomile, calendula",'Gentle Cleansers']
         cleanser_avoidance = ['Fragrance ','Harsh Sulfates','Alcohol','Exfoliating Scrubs']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("normal"),skincondition=L("Not any"),sensitivitydetails=L("Fragrance Allergy"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def NormalCleanser4(self,cf1,cf2):
@@ -462,13 +279,7 @@ Soothing Relief: Calms irritation and itching associated with Eczema.'''
         cleanser_ingredients = ["Hydrating Ingredients (Optional)",'Gentle Cleansers']
         cleanser_avoidance = ['Fragrance (Obviously!) ','Harsh Sulfates','Alcohol']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("normal"),skincondition=L("Not any"),sensitivitydetails=L("allergy to salicylic acid"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def NormalCleanser5(self,cf1,cf2):
@@ -476,13 +287,7 @@ Soothing Relief: Calms irritation and itching associated with Eczema.'''
         cleanser_ingredients = ["Hydration Boost (Optional)",'Gentle Cleansers']
         cleanser_avoidance = ['Salicylic Acid','Harsh Sulfates','Alcohol']
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Cleanser',
-        'ingredients': cleanser_ingredients,
-        'reason': cleanser_reason,
-        'avoidance': cleanser_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser",ingredients=cleanser_ingredients,reason=cleanser_reason,avoidance=cleanser_avoidance,conf=cf))
     @Rule(User(skintype=L("normal"),skincondition=L("Rosacea"),sensitivitydetails=~L("Not any"),skinconditionconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2))
     def NormalCleanser6(self,cf1,cf2):
@@ -492,13 +297,7 @@ Soothing Relief: Calms redness and irritation associated with Rosacea.'''
         cleanser_avoidance = ['Fragrance','Harsh Sulfates','Alcohol','Comedogenic Oils']
         cleanser_ingredients = ['Gentle Exfoliants','Micellar Water (Oil-Free, Fragrance-Free) ','Low-Foaming Cream Cleansers', 'Sulfates (SLS/SLES) - Limited (if tolerated)','HBetaine (Coco-Betaine, etc.)','Hydrating Ingredients(Glycerin)','Soothing Ingredients (for Rosacea):Green Tea Extract-Licorice Root Extract,','Non-comedogenic:'] 
         cf = 0.9 *min(cf1,cf2)
-        self.recommendations.append({
-            'product': 'Cleanser',
-            'ingredients': cleanser_ingredients,
-            'reason': cleanser_reason,
-            'avoidance': cleanser_avoidance,
-            'confidence': cf,
-        })
+        self.recommendations.append({ 'product': 'Cleanser','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Cleanser", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=cf))
     @Rule(User(skintype=L("normal"),skincondition=L("Eczema"),sensitivitydetails=~L("Not any"),skinconditionconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2))
     def NormalCleanser7(self,cf1,cf2):
@@ -517,7 +316,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
             'confidence': cf,
         })
         self.declare(Recommendations(product="Cleanser", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=cf))
-    # test
+    
     # Moisturizer
     # based on skin type/acne/sensetivites/skin conditions
     @Rule(User(skintype=L("oily"),have_acne=L("no"),sensitivitydetails=L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
@@ -526,13 +325,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         moisturizer_ingredients = ['Niacinamide', 'Hyaluronic Acid']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("oily"),have_acne=L("yes"),sensitivitydetails=L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer2(self,cf1,cf2,cf3):
@@ -540,13 +333,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         moisturizer_ingredients = ['Niacinamide', 'Acne-Fighting Ingredients(Salicylic Acid-Benzoyl Peroxide)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("oily"),have_acne=L("no"),sensitivitydetails=~L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer3(self,cf1,cf2,cf3):
@@ -554,13 +341,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         moisturizer_ingredients = ['Oil-Free Lotions or Gel Moisturizers', 'Soothing Ingredients(Centella Asiatica (CICA)-Allantoin)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("oily"),have_acne=L("no"),sensitivitydetails=L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer4(self,cf1,cf2,cf3):
@@ -568,13 +349,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         moisturizer_ingredients = ['Oil-Free Lotions or Gel Moisturizers','fragrance-free']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("oily"),have_acne=L("no"),sensitivitydetails=~L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer5(self,cf1,cf2,cf3):
@@ -582,13 +357,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         moisturizer_ingredients = ['Oil-Free Lotions or Gel Moisturizers','fragrance-free','Soothing Ingredients(Centella Asiatica (CICA)-Allantoin)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("oily"),have_acne=L("yes"),sensitivitydetails=~L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer6(self,cf1,cf2,cf3):
@@ -596,13 +365,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         moisturizer_ingredients = ['Oil-Free Lotions or Gel Moisturizers','fragrance-free','Soothing Ingredients(Centella Asiatica (CICA)-Allantoin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("oily"),have_acne=L("yes"),sensitivitydetails=L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer7(self,cf1,cf2,cf3):
@@ -610,13 +373,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         moisturizer_ingredients = ['Oil-Free Lotions or Gel Moisturizers','fragrance-free','Soothing Ingredients(Centella Asiatica (CICA)-Allantoin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
         
     @Rule(User(skintype=L("oily"),have_acne=L("yes"),sensitivitydetails=~L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
@@ -625,13 +382,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         moisturizer_ingredients = ['Oil-Free Lotions or Gel Moisturizers','fragrance-free','Soothing Ingredients(Centella Asiatica (CICA)-Allantoin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     # dry skin moistuizer
     @Rule(User(skintype=L("dry"),have_acne=L("no"),sensitivitydetails=L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
@@ -641,13 +392,7 @@ Hydration and Skin Barrier Repair: Supports the skin's natural barrier function,
         moisturizer_ingredients = ['Hyaluronic Acid', 'Ceramides']
         moisturizer_avoidance = ['Artificial Fragrances', 'Alcohol']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),have_acne=L("yes"),sensitivitydetails=L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer2d(self,cf1,cf2,cf3):
@@ -657,15 +402,7 @@ Help manage acne breakouts.'''
         moisturizer_ingredients = ['non-comedogenic formulas', 'Acne-Fighting Ingredients(Salicylic Acid-Benzoyl Peroxide)','Hydrating Ingredients(Hyaluronic Acid-Glycerin)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance','Heavy Creams or Ointments','Alcohol']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
-        
-        
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})  
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),have_acne=L("no"),sensitivitydetails=~L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer3d(self,cf1,cf2,cf3):
@@ -675,13 +412,7 @@ Soothing relief for sensitive skin'''
         moisturizer_ingredients = ['Creams or Ointments', 'Emollients(Ceramides-Shea Butter)','Humectants(Hyaluronic Acid-Glycerin)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),have_acne=L("no"),sensitivitydetails=L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer4d(self,cf1,cf2,cf3):
@@ -691,13 +422,7 @@ Addressing the specific concerns of your skin condition.'''
         moisturizer_ingredients = ['Creams or Ointments','fragrance-free moisturizers(ceramides-colloidal oatmeal)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),have_acne=L("no"),sensitivitydetails=~L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer5d(self,cf1,cf2,cf3):
@@ -705,13 +430,7 @@ Addressing the specific concerns of your skin condition.'''
         moisturizer_ingredients = ['Creams or Ointments','fragrance-free','Humectants(Hyaluronic Acid-Glycerin)','Emollients(Ceramides-Shea Butter)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),have_acne=L("yes"),sensitivitydetails=~L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer6d(self,cf1,cf2,cf3):
@@ -722,13 +441,7 @@ Potentially manage acne breakouts (gently, considering sensitivities).'''
         moisturizer_ingredients = ['Creams or Ointments','fragrance-free','Humectants(Hyaluronic Acid-Glycerin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments','Soothing ingredients (Niacinamide -Centella Asiatica (CICA))']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("dry"),have_acne=L("yes"),sensitivitydetails=L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer7d(self,cf1,cf2,cf3):
@@ -736,13 +449,7 @@ Potentially manage acne breakouts (gently, considering sensitivities).'''
         moisturizer_ingredients = ['Creams (non-comedogenic)','fragrance-free','Humectants(Hyaluronic Acid-Glycerin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
         
     @Rule(User(skintype=L("dry"),have_acne=L("yes"),sensitivitydetails=~L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
@@ -754,13 +461,7 @@ Potentially help manage acne breakouts (gently, considering sensitivities).'''
         moisturizer_ingredients = ['Creams(fragrance-free" and "gentle)','Humectants(Hyaluronic Acid-Glycerin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Avoid Harsh Acne Treatments(Salicylic Acid and Benzoyl Peroxide)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     
     # combination skin
@@ -772,13 +473,7 @@ A lightweight, comfortable feel for all-day wear.'''
         moisturizer_ingredients = ['Lotions or Gel-Creams', 'Humectants(Hyaluronic Acid-Glycerin)','Emollients (optional):Ceramides-Dimethicone']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),have_acne=L("yes"),sensitivitydetails=L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer2c(self,cf1,cf2,cf3):
@@ -788,13 +483,7 @@ Helps manage acne breakouts.'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams', 'Acne-Fighting Ingredients(Salicylic Acid-Benzoyl Peroxide)','Hydrating Ingredients(Hyaluronic Acid-Glycerin)','Humectants(Hyaluronic Acid-Glycerin)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),have_acne=L("no"),sensitivitydetails=~L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer3c(self,cf1,cf2,cf3):
@@ -804,13 +493,7 @@ Soothe and protect sensitive skin.'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams', 'Emollients(Ceramides-Shea Butter)','Humectants(Hyaluronic Acid-Glycerin)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance',]
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),have_acne=L("no"),sensitivitydetails=L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer4c(self,cf1,cf2,cf3):
@@ -820,13 +503,7 @@ Addressing the specific concerns of your skin condition.'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams(non-comedogenic)','fragrance-free moisturizers(ceramides-colloidal oatmeal)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),have_acne=L("no"),sensitivitydetails=~L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer5c(self,cf1,cf2,cf3):
@@ -837,13 +514,7 @@ Addresses the specific concerns of your specific skin condition.'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams(fragrance-free and gentle)','fragrance-free','Humectants(Hyaluronic Acid-Glycerin)','Emollients(Ceramides-Shea Butter)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),have_acne=L("yes"),sensitivitydetails=~L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer6c(self,cf1,cf2,cf3):
@@ -855,13 +526,7 @@ Addressing the specific concerns of your skin condition.'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams(fragrance-free and gentle)','fragrance-free','Humectants(Hyaluronic Acid-Glycerin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments','Soothing ingredients (Niacinamide -Centella Asiatica (CICA))']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("combination"),have_acne=L("yes"),sensitivitydetails=L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer7c(self,cf1,cf2,cf3):
@@ -872,13 +537,7 @@ Addressing the specific concerns of your skin condition.'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams (non-comedogenic)','fragrance-free ','Humectants(Hyaluronic Acid-Glycerin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
         
     @Rule(User(skintype=L("combination"),have_acne=L("yes"),sensitivitydetails=~L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
@@ -889,13 +548,7 @@ Management of acne breakouts (considering sensitivities).'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams(fragrance-free and gentle)','Humectants(Hyaluronic Acid-Glycerin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Avoid Harsh Acne Treatments(Salicylic Acid and Benzoyl Peroxide)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     
     # normal skin
@@ -907,13 +560,7 @@ Protection from environmental factors.'''
         moisturizer_ingredients = ['Lotions or Creams', 'Humectants(Hyaluronic Acid-Glycerin)','Emollients (optional):Ceramides-Dimethicone']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("normal"),have_acne=L("yes"),sensitivitydetails=L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer2n(self,cf1,cf2,cf3):
@@ -923,13 +570,7 @@ Helps manage acne breakouts.'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams', 'Acne-Fighting Ingredients(Salicylic Acid-Benzoyl Peroxide)','Hydrating Ingredients(Hyaluronic Acid-Glycerin)','Humectants(Hyaluronic Acid-Glycerin)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("normal"),have_acne=L("no"),sensitivitydetails=~L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer3n(self,cf1,cf2,cf3):
@@ -939,13 +580,7 @@ Soothe and protect sensitive skin.'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams', 'Emollients(Ceramides-Shea Butter)','Humectants(Hyaluronic Acid-Glycerin)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance',]
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("normal"),have_acne=L("no"),sensitivitydetails=L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer4n(self,cf1,cf2,cf3):
@@ -955,13 +590,7 @@ Address the concerns of his specific skin condition.'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams(non-comedogenic)','fragrance-free moisturizers(ceramides-colloidal oatmeal)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("normal"),have_acne=L("no"),sensitivitydetails=~L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer5n(self,cf1,cf2,cf3):
@@ -972,13 +601,7 @@ Targeted ingredients for his specific skin condition.'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams(fragrance-free and gentle)','fragrance-free','Humectants(Hyaluronic Acid-Glycerin)','Emollients(Ceramides-Shea Butter)']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments','Alcohol']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("normal"),have_acne=L("yes"),sensitivitydetails=~L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer6n(self,cf1,cf2,cf3):
@@ -990,13 +613,7 @@ Addressing the specific concerns of his skin condition.'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams(fragrance-free and gentle)','fragrance-free','Humectants(Hyaluronic Acid-Glycerin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)', 'Fragrance (if applicable)','Heavy Creams or Ointments','Soothing ingredients (Niacinamide -Centella Asiatica (CICA))']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
     @Rule(User(skintype=L("normal"),have_acne=L("yes"),sensitivitydetails=L("Not any"),skincondition=~L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
     def RecommededMoisturizer7n(self,cf1,cf2,cf3):
@@ -1007,13 +624,7 @@ Addressing the concerns of his specific skin condition.'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams (non-comedogenic)','fragrance-free ','Humectants(Hyaluronic Acid-Glycerin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Ingredients that Clog Pores (Comedogenic)']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
         
     @Rule(User(skintype=L("normal"),have_acne=L("yes"),sensitivitydetails=~L("Not any"),skincondition=L("Not any"),have_acneconf=MATCH.cf1,sensitivitydetailsconf=MATCH.cf2,skinconditionconf=MATCH.cf3),)
@@ -1024,15 +635,8 @@ Management of acne breakouts (considering sensitivities).'''
         moisturizer_ingredients = ['Lotions or Lightweight Creams(fragrance-free and gentle)','Humectants(Hyaluronic Acid-Glycerin)','Acne-Fighting Ingredients(Salicylic Acid (if not sensitive)-Niacinamide )']
         moisturizer_avoidance = ['Avoid Harsh Acne Treatments(Salicylic Acid and Benzoyl Peroxide)', 'Fragrance (if applicable)','Heavy Creams or Ointments']
         cf = 0.9 *min(cf1,cf2,cf3)
-        self.recommendations.append({
-        'product': 'Moisturizer',
-        'ingredients': moisturizer_ingredients,
-        'reason': moisturizer_reason,
-        'avoidance': moisturizer_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Moisturizer','ingredients': moisturizer_ingredients,'reason': moisturizer_reason,'avoidance': moisturizer_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Moisturizer",ingredients=moisturizer_ingredients,reason=moisturizer_reason,avoidance=moisturizer_avoidance,conf=cf))
-    # test
     # sunscreen
     # based on routine and season and Skin Condition,Skin Sensitivity,
     @Rule(User(routinetype=L("morning"),season=L("summer"),skincondition=L("Not any"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2))
@@ -1041,13 +645,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Zinc Oxide', 'Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters', 'Oxybenzone']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("winter"),skincondition=L("Not any"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen2(self,cf1,cf2):
@@ -1056,13 +654,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Zinc Oxide', 'Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters', 'Oxybenzone']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("summer"),skincondition=L("Eczema"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen3(self,cf1,cf2):
@@ -1071,13 +663,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Zinc Oxide', 'Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("summer"),skincondition=L("Rosacea"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen4(self,cf1,cf2):
@@ -1086,13 +672,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Zinc Oxide', 'Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Fragrance ']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("winter"),skincondition=L("Eczema"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen5(self,cf1,cf2):
@@ -1101,13 +681,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)', 'Chemical UV Filters']
         sunscreen_avoidance = ['Harsh chemicals','fragrance']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("winter"),skincondition=L("Rosacea"),sensitivitydetails=L("Not any"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen6(self,cf1,cf2):
@@ -1115,13 +689,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)']
         sunscreen_avoidance = ['Chemical UV Filters','fragrance']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("summer"),skincondition=L("Not any"),sensitivitydetails=L("allergy to salicylic acid"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen7(self,cf1,cf2):
@@ -1129,13 +697,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)','Zinc Oxide','Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Salicylic Acid (obviously!)']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("summer"),skincondition=L("Not any"),sensitivitydetails=L("Fragrance Allergy"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen8(self,cf1,cf2):
@@ -1143,13 +705,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)','Zinc Oxide','Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Fragrance (obviously!)']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("winter"),skincondition=L("Not any"),sensitivitydetails=L("allergy to salicylic acid"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen9(self,cf1,cf2):
@@ -1157,13 +713,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)','Zinc Oxide','Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Salicylic Acid (obviously!)']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("winter"),skincondition=L("Not any"),sensitivitydetails=L("Fragrance Allergy"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen10(self,cf1,cf2):
@@ -1171,13 +721,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)','Zinc Oxide','Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Fragrance (obviously!)']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
         # sunscreen comb
     @Rule(User(routinetype=L("morning"),season=L("winter"),skincondition=L("Eczema"),sensitivitydetails=L("allergy to salicylic acid"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
@@ -1186,13 +730,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)','Zinc Oxide','Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Salicylic Acid (obviously!)']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("winter"),skincondition=L("Eczema"),sensitivitydetails=L("Fragrance Allergy"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen12(self,cf1,cf2):
@@ -1200,13 +738,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)','Zinc Oxide','Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Fragrance (obviously!)']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("winter"),skincondition=L("Rosacea"),sensitivitydetails=L("allergy to salicylic acid"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen13(self,cf1,cf2):
@@ -1214,13 +746,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)','Zinc Oxide','Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Salicylic Acid (obviously!)']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("winter"),skincondition=L("Rosacea"),sensitivitydetails=L("Fragrance Allergy"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen14(self,cf1,cf2):
@@ -1228,13 +754,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)','Zinc Oxide','Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Fragrance (obviously!)']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("summer"),skincondition=L("Eczema"),sensitivitydetails=L("allergy to salicylic acid"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen15(self,cf1,cf2):
@@ -1242,13 +762,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)','Zinc Oxide','Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Salicylic Acid (obviously!)']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("summer"),skincondition=L("Eczema"),sensitivitydetails=L("Fragrance Allergy"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen16(self,cf1,cf2):
@@ -1256,13 +770,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)','Zinc Oxide','Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Fragrance (obviously!)']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("summer"),skincondition=L("Rosacea"),sensitivitydetails=L("allergy to salicylic acid"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen17(self,cf1,cf2):
@@ -1270,13 +778,7 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)','Zinc Oxide','Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Salicylic Acid (obviously!)']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
         self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
     @Rule(User(routinetype=L("morning"),season=L("summer"),skincondition=L("Rosacea"),sensitivitydetails=L("Fragrance Allergy"),sensitivityconf=MATCH.cf1,skinconditionconf=MATCH.cf2),)
     def RecommededSunScreen18(self,cf1,cf2):
@@ -1284,16 +786,8 @@ Management of acne breakouts (considering sensitivities).'''
         sunscreen_ingredients = ['Mineral UV Filters (physical blockers)','Zinc Oxide','Titanium Dioxide']
         sunscreen_avoidance = ['Chemical UV Filters','Fragrance (obviously!)']
         cf=0.9*min(cf1,cf2)
-        self.recommendations.append({
-        'product': 'Sun screen',
-        'ingredients': sunscreen_ingredients,
-        'reason': sunscreen_reason,
-        'avoidance': sunscreen_avoidance,
-        'confidence': cf,
-        })
-        self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))
-    
-        
+        self.recommendations.append({'product': 'Sun screen','ingredients': sunscreen_ingredients,'reason': sunscreen_reason,'avoidance': sunscreen_avoidance,'confidence': cf,})
+        self.declare(Recommendations(product="Sun screen",ingredients=sunscreen_ingredients,reason=sunscreen_reason,avoidance=sunscreen_avoidance,conf=cf))   
     # Serum 
     # based on the routine type and age 
     @Rule(OR(User(routinetype=L("night"),age=L("mature")),User(routinetype=L("both"),age=L("mature"))))
@@ -1301,26 +795,14 @@ Management of acne breakouts (considering sensitivities).'''
         serum_reason = 'Serums are concentrated formulas designed to target specific skincare concerns, such as fine lines, wrinkles, and loss of firmness.'
         serum_ingredients = ['Retinol', 'Peptides']
         serum_avoidance = ['Artificial Colors', 'Parabens']
-        self.recommendations.append({
-        'product': 'Anti-Aging Serum',
-        'ingredients': serum_ingredients,
-        'reason': serum_reason,
-        'avoidance': serum_avoidance,
-        'confidence': 1.0,
-        })
+        self.recommendations.append({'product': 'Anti-Aging Serum','ingredients': serum_ingredients,'reason': serum_reason,'avoidance': serum_avoidance,'confidence': 1.0, })
         self.declare(Recommendations(product="Anti-Aging Serum",ingredients=serum_ingredients,reason=serum_reason,avoidance=serum_avoidance,conf=1.0))
     @Rule(User(skincondition=L("hyperpigmentation")))
     def Recommededserum2(self):
         serum_reason = 'Brightening serums help to fade dark spots, even out skin tone, and restore radiance to the complexion.'
         serum_ingredients = ['Vitamin C', 'Niacinamide']
         serum_avoidance = ['Fragrance', 'Essential Oils']
-        self.recommendations.append({
-            'product': 'Brightening Serum',
-            'ingredients': serum_ingredients,
-            'reason': serum_reason,
-            'avoidance': serum_avoidance,
-            'confidence': 1.0,
-        })
+        self.recommendations.append({'product': 'Brightening Serum','ingredients': serum_ingredients,'reason': serum_reason,'avoidance': serum_avoidance,'confidence': 1.0,})
         self.declare(Recommendations(product="Brightening Serum",ingredients=serum_ingredients,reason=serum_reason,avoidance=serum_avoidance,conf=1.0))
         
     
@@ -1333,13 +815,7 @@ Management of acne breakouts (considering sensitivities).'''
         sensitive_reason = 'Gentle, soothing products are essential for sensitive skin to minimize irritation and maintain a healthy skin barrier.'
         sensitive_ingredients = ['Aloe Vera', 'Colloidal Oatmeal']
         sensitive_avoidance = ['Alcohol', 'Synthetic Dyes']
-        self.recommendations.append({
-            'product': 'Soothing Cream',
-            'ingredients': sensitive_ingredients,
-            'reason': sensitive_reason,
-            'avoidance': sensitive_avoidance,
-            'confidence': 1.0,
-        })
+        self.recommendations.append({'product': 'Soothing Cream','ingredients': sensitive_ingredients,'reason': sensitive_reason, 'avoidance': sensitive_avoidance,'confidence': 1.0,})
         self.declare(Recommendations(product="Soothing Cream",ingredients=sensitive_ingredients,reason=sensitive_reason,avoidance=sensitive_avoidance,conf=1.0))
         
     # Gender-specific recommendations
@@ -1349,26 +825,14 @@ Management of acne breakouts (considering sensitivities).'''
         feminine_hygiene_reason = 'Feminine hygiene products should be gentle and pH-balanced to maintain intimate area health and prevent irritation.'
         feminine_hygiene_ingredients = ['Hypoallergenic', 'Fragrance-Free']
         feminine_hygiene_avoidance = ['Artificial Dyes', 'Harsh Surfactants']
-        self.recommendations.append({
-        'product': 'Feminine Hygiene Products',
-        'ingredients': feminine_hygiene_ingredients,
-        'reason': feminine_hygiene_reason,
-        'avoidance': feminine_hygiene_avoidance,
-        'confidence': 1.0,
-        })
+        self.recommendations.append({'product': 'Feminine Hygiene Products','ingredients': feminine_hygiene_ingredients,'reason': feminine_hygiene_reason,'avoidance': feminine_hygiene_avoidance,'confidence': 1.0,})
         self.declare(Recommendations(product="Feminine Hygiene Products",ingredients=feminine_hygiene_ingredients,reason=feminine_hygiene_reason,avoidance=feminine_hygiene_avoidance,conf=1.0))
     @Rule(User(gender=L("male")))
     def GenderSpeRec2(self):
         shaving_gel_reason = 'Using a shaving gel with soothing ingredients can help minimize irritation and razor burn during shaving.'
         shaving_gel_ingredients = ['Aloe Vera', 'Vitamin E']
         shaving_gel_avoidance = ['Alcohol', 'Menthol']
-        self.recommendations.append({
-        'product': 'Shaving Gel',
-        'ingredients': shaving_gel_ingredients,
-        'reason': shaving_gel_reason,
-        'avoidance': shaving_gel_avoidance,
-        'confidence': 1.0,
-        })
+        self.recommendations.append({'product': 'Shaving Gel','ingredients': shaving_gel_ingredients,'reason': shaving_gel_reason,'avoidance': shaving_gel_avoidance,'confidence': 1.0,})
         self.declare(Recommendations(product="Shaving Gel",ingredients=shaving_gel_ingredients,reason=shaving_gel_reason,avoidance=shaving_gel_avoidance))
     
     # Pregnancy and breastfeeding considerations
@@ -1377,14 +841,7 @@ Management of acne breakouts (considering sensitivities).'''
         pregnancy_safe_reason = 'Opt for pregnancy-safe skincare products with minimal use of active ingredients that may be harmful during pregnancy or breastfeeding.'
         pregnancy_safe_ingredients = ['Glycolic Acid (in low concentrations)', 'Hyaluronic Acid', 'Vitamin C (in stable form)']
         pregnancy_safe_avoidance = ['Retinoids', 'Salicylic Acid (in high concentrations)']
-        self.recommendations.append({
-            'product': 'Pregnancy-Safe Skincare',
-            'ingredients': pregnancy_safe_ingredients,
-            'reason': pregnancy_safe_reason,
-            'avoidance': pregnancy_safe_avoidance,
-            'confidence': 1.0,
-            
-        })
+        self.recommendations.append({'product': 'Pregnancy-Safe Skincare','ingredients': pregnancy_safe_ingredients,'reason': pregnancy_safe_reason,'avoidance': pregnancy_safe_avoidance,'confidence': 1.0,})
         self.declare(Recommendations(product="Pregnancy-Safe Skincare",ingredients=pregnancy_safe_ingredients,reason=pregnancy_safe_reason,avoidance=pregnancy_safe_avoidance,conf=1.0))
         
     # Skin Tone Specific Recommendations
@@ -1393,112 +850,109 @@ Management of acne breakouts (considering sensitivities).'''
         fair_skin_reason = 'For fair skin tones, focus on products that offer gentle care and protection against UV damage.'
         fair_skin_ingredients = ['Gentle Exfoliants', 'SPF Moisturizers']
         fair_skin_avoidance = ['Heavy Fragrances', 'Chemical Peels']
-        self.recommendations.append({
-            'product': 'Fair Skin Care',
-            'ingredients': fair_skin_ingredients,
-            'reason': fair_skin_reason,
-            'avoidance': fair_skin_avoidance,
-            'confidence': 1.0,
-        })
+        self.recommendations.append({'product': 'Fair Skin Care','ingredients': fair_skin_ingredients,'reason': fair_skin_reason,'avoidance': fair_skin_avoidance,'confidence': 1.0,})
         self.declare(Recommendations(product="Fair Skin Care",ingredients=fair_skin_ingredients,reason=fair_skin_reason,avoidance=fair_skin_avoidance,conf=1.0))
     @Rule(User(skintone=L("medium")))
     def Skintone2(self):
         medium_skin_reason = 'Medium skin tones can benefit from products that maintain moisture and even out complexion.'
         medium_skin_ingredients = ['Hydrating Serums', 'Tinted Moisturizers']
         medium_skin_avoidance = ['Drying Alcohols', 'Harsh Scrubs']
-        self.recommendations.append({
-            'product': 'Medium Skin Care',
-            'ingredients': medium_skin_ingredients,
-            'reason': medium_skin_reason,
-            'avoidance': medium_skin_avoidance,
-            'confidence': 1.0,
-        })
+        self.recommendations.append({'product': 'Medium Skin Care','ingredients': medium_skin_ingredients,'reason': medium_skin_reason,'avoidance': medium_skin_avoidance,'confidence': 1.0,})
         self.declare(Recommendations(product="Medium Skin Care",ingredients=medium_skin_ingredients,reason=medium_skin_reason,avoidance=medium_skin_avoidance,conf=1.0))
     @Rule(User(skintone=L("dark")))
     def Skintone3(self):
         dark_skin_reason = 'Dark skin tones require products that prevent hyperpigmentation and provide adequate moisture.'
         dark_skin_ingredients = ['Dark Spot Correctors', 'Rich Body Butters']
         dark_skin_avoidance = ['Bleaching Agents', 'Heavy Fragrances']
-        self.recommendations.append({
-            'product': 'Dark Skin Care',
-            'ingredients': dark_skin_ingredients,
-            'reason': dark_skin_reason,
-            'avoidance': dark_skin_avoidance,
-            'confidence': 1.0,
-        })
+        self.recommendations.append({'product': 'Dark Skin Care','ingredients': dark_skin_ingredients,'reason': dark_skin_reason,'avoidance': dark_skin_avoidance,'confidence': 1.0,})
         self.declare(Recommendations(product="Dark Skin Care",ingredients=dark_skin_ingredients,reason=dark_skin_reason,avoidance=dark_skin_avoidance,conf=1.0))
     #test
     @Rule(User(skincondition=L("Eczema")),)
     def KnowledgeinfoEczema(self):
-        explaination = 'the disease is due to inheritance of a faulty gene in your skin called Filaggrin or flare with a particular food. Histamine is not the only cause of the itch of eczema so anti-histamines may not control the symptoms.'
+        explaination = 'the Eczema is due to inheritance of a faulty gene in your skin called Filaggrin or flare with a particular food. Histamine is not the only cause of the itch of eczema so anti-histamines may not control the symptoms.'
         ingredients = ['Colloidal Oatmeal ', 'Ceramides', 'Extra Soothing','Barrier Repair']
         avoidance = ['Stress', 'Skin Dryness', 'Allergens', 'Harsh Soaps']
-        self.recommendations.append({
-        'product': 'INFO:',
-        'ingredients': ingredients,
-        'explaination': explaination,
-        'avoidance': avoidance,
-        'confidence': 1.0,
-        })
-        self.declare(Recommendations(info="INFO",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
+        self.recommendations.append({'product': 'info:','ingredients': ingredients,'reason': explaination,'avoidance': avoidance,'confidence': 1.0,})
+        self.declare(Recommendations(info="info",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
+    @Rule(User(skincondition=L("Rosacea")),)
+    def KnowledgeinfoRosacea(self):
+            explaination = 'Rosacea is a chronic inflammatory skin condition that typically affects the face. It is characterized by redness, visible blood vessels, and sometimes acne-like bumps. Triggers can include spicy foods, alcohol, temperature extremes, and stress.'
+            ingredients = ['Niacinamide', 'Azelaic Acid', 'Green Tea Extract', 'Ceramides', 'Sun Protection (SPF 30 or higher)']
+            avoidance = ['Spicy Foods', 'Alcohol', 'Extreme Temperatures', 'Stress', 'Harsh Skincare Products']
+            self.recommendations.append({'product': 'info:','ingredients': ingredients,'reason': explaination,'avoidance': avoidance,'confidence': 1.0,})
+            self.declare(Recommendations(info="info", ingredients=ingredients, explaination=explaination, avoidance=avoidance, conf=1.0))
+
     @Rule(User(sensitivitydetails=L("Food")),)
     def KnowledgeinfoFood(self):
         explaination = 'Check product labels for potential allergens. Use products clearly labeled as free from specific allergens'
         ingredients = ['Nut Oils-Free', 'Diary-Free', 'Gluten-Free', 'Soy-Free', 'Cirtus-Free']
         avoidance = ['Lactose', 'Casein', 'Nuts Oil', 'Almond Oil', 'Peanuts', 'Wheat', 'Barley', 'Rye', 'Soybean', 'Soy Lecithin', 'Citrus Oils']
-        self.recommendations.append({
-        'product': 'INFO:',
-        'ingredients': ingredients,
-        'explaination': explaination,
-        'avoidance': avoidance,
-        'confidence': 1.0,
-        })
-        self.declare(Recommendations(info="INFO",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
+        self.recommendations.append({'product': 'info:','ingredients': ingredients,'reason': explaination,'avoidance': avoidance,'confidence': 1.0,})
+        self.declare(Recommendations(info="info",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
     @Rule(User(sensitivitydetails=L("Chemicals")),)
     def KnowledgeinfoChemical(self):
         explaination = 'for products labeled as -free of harsh chemicals-, -hypoallergenic- and -non-comedogeni'
         ingredients = ['sulfate-free', 'paraben-free', 'formaldehyde-free', 'phthalate-free', 'phenoxyethanol-free', 'alcohol-free']
         avoidance = ['Sodium Lauryl Sulfates (SLS)', 'Sodium Laureth Sulfates (SLS)', 'Methylparaben', 'Propylparaben' 'Quaternium-15', 'DMDM Hydantoin', 'Imidazolidinyl Urea', 'Fragrances', 'Undisclosed Chemicals', 'SD Alcohol']
-        self.recommendations.append({
-        'product': 'INFO:',
-        'ingredients': ingredients,
-        'explaination': explaination,
-        'avoidance': avoidance,
-        'confidence': 1.0,
-        })
-        self.declare(Recommendations(info="INFO",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
+        self.recommendations.append({'product': 'info:','ingredients': ingredients,'reason': explaination,'avoidance': avoidance,'confidence': 1.0,})
+        self.declare(Recommendations(info="info",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
     @Rule(User(sensitivitydetails=L("Preservative")),)
     def KnowledgeinfoChemicalPreservative(self):
         explaination = 'for products labeled as -free of harsh chemicals-, -hypoallergenic- and -non-comedogenic'
         ingredients = ['grapefruit seed extract', 'natural preservatives', 'preservative-free']
         avoidance = ['Parabens', 'formaldehyde-releasing agents', 'DMDM hydantoin', 'methylisothiazolinone (MIT)', 'methylchloroisothiazolinone (CMIT)']
-        self.recommendations.append({
-        'product': 'INFO:',
-        'ingredients': ingredients,
-        'explaination': explaination,
-        'avoidance': avoidance,
-        'confidence': 1.0,
-        })
-        self.declare(Recommendations(info="INFO",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
+        self.recommendations.append({'product': 'info:','ingredients': ingredients,'reason': explaination,'avoidance': avoidance,'confidence': 1.0,})
+        self.declare(Recommendations(info="info",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
+    @Rule(User(skincondition=L("Hyperpigmentation")),)
+    def KnowledgeinfoHyperpigmentation(self): 
+        explaination = 'Hyperpigmentation is a common skin condition characterized by darkening of patches of skin. It can be caused by sun exposure, hormonal changes, acne scars, and inflammation. Using ingredients like Vitamin C, Retinol, Niacinamide, and Licorice Extract can help lighten hyperpigmentation.',
+        ingredients = ['Vitamin C', 'Retinol', 'Niacinamide','Licorice Extract']
+        avoidance = ['Sun exposure', 'Hormonal changes', 'Acne scars', 'Inflammation']
+        self.recommendations.append({ 'product': 'info','ingredients': ingredients,'reason': explaination,'avoidance': avoidance, 'confidence': 1.0, }),
+        self.declare(Recommendations(info="info",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
+    @Rule(User(have_acne=L("yes")))
+    def KnowledgeinfoAcne(self):
+        explaination = 'Acne is a skin condition that occurs when hair follicles become clogged with oil and dead skin cells. Hormonal changes, stress, diet, and bacteria can worsen acne. Using ingredients like Salicylic Acid, Benzoyl Peroxide, Retinoids, and Tea Tree Oil can help treat acne.'
+        ingredients = ['Salicylic Acid', 'Benzoyl Peroxide', 'Retinoids','Tea Tree Oil']
+        avoidance = ['Hormonal changes', 'Stress', 'Diet', 'Bacteria growth']
+        self.recommendations.append({ 'product': 'info:', 'ingredients': ingredients,'reason': explaination, 'avoidance': avoidance, 'confidence': 1.0, })
+        self.declare(Recommendations(info="info",ingredients=ingredients,explaination=explaination,avoidance=avoidance,conf=1.0))
+    @Rule(User(season=L("Summer")),) 
+    def SkincareRecommendationsSummer(self):
+        recommendations = 'During summer, it is important to protect your skin from the sun, stay hydrated, and use lightweight, non-comedogenic products. Ingredients like Hyaluronic Acid, Aloe Vera, and Vitamin C can help hydrate and protect your skin from UV damage.'
+        ingredients = ['Hyaluronic Acid', 'Aloe Vera', 'Vitamin C']
+        self.recommendations.append({ 'product': 'info:','reason': recommendations,'ingredients': ingredients,'avoidance': "N/A",'confidence': 1.0,}),
+        self.declare(Recommendations(info="info",recommendations=recommendations,ingredients=ingredients,conf=1.0))
+    @Rule(User(season=L("Winter")),)
+    def SkincareRecommendationsWinter(self):
+        recommendations = 'During winter, focus on hydrating and moisturizing your skin to combat dryness and protect it from harsh weather. Ingredients like Shea Butter, Ceramides, and Squalane can help nourish and repair the skin barrier during the cold months.'
+        ingredients = ['Shea Butter', 'Ceramides', 'Squalane']
+        self.recommendations.append({ 'product': 'info:', 'reason': recommendations, 'ingredients': ingredients,'avoidance': "N/A", 'confidence': 1.0, })
+        self.declare(Recommendations(info="info",recommendations=recommendations,ingredients=ingredients,conf=1.0))
+    @Rule(User(age=L("mature")),) 
+    def SkincareRecommendationsMature(self):
+        recommendations = 'For mature skin, focus on anti-aging ingredients that help improve skin elasticity and reduce the appearance of fine lines and wrinkles. Ingredients like Retinol, Peptides, Vitamin E, and Collagen can help rejuvenate and firm mature skin.'
+        ingredients = ['Retinol', 'Peptides', 'Vitamin E', 'Collagen']
+        self.recommendations.append({ 'product': 'info:', 'reason':recommendations, 'ingredients': ingredients,'avoidance': "N/A", 'confidence': 1.0, })
+        self.declare(Recommendations(info="info",recommendations=recommendations,ingredients=ingredients,conf=1.0))
+    @Rule(User(age=L("adult")),)
+    def SkincareRecommendationsAdult(self):
+        recommendations = 'For adult skin, focus on maintaining skin health and preventing early signs of aging. Ingredients like Vitamin C, Hyaluronic Acid, and Antioxidants can help protect the skin from environmental damage and promote a youthful complexion.'
+        ingredients = ['Vitamin C', 'Hyaluronic Acid', 'Antioxidants']
+        self.recommendations.append({ 'product': 'info:', 'reason': recommendations, 'ingredients': ingredients,'avoidance': "N/A", 'confidence': 1.0, })
+        self.declare(Recommendations(info="info",recommendations=recommendations,ingredients=ingredients,conf=1.0))
+        
     @Rule(User(skintype=L("oily")))
     def USA(self):
         cleanser_reason = '''The US wants to give you freedom'''
         cleanser_avoidance = ['Dictatorship','socialism']
         cleanser_ingredients = ['Oil','Democracy'] 
-        self.recommendations.append({
-            'product': 'USA',
-            'ingredients': cleanser_ingredients,
-            'reason': cleanser_reason,
-            'avoidance': cleanser_avoidance,
-            'confidence': 1.0,
-        })
+        self.recommendations.append({'product': 'USA','ingredients': cleanser_ingredients,'reason': cleanser_reason,'avoidance': cleanser_avoidance,'confidence': 1.0,})
         self.declare(Recommendations(product="USA", ingredients=cleanser_ingredients, reason=cleanser_reason, avoidance=cleanser_avoidance, conf=1.0))
+    
     @Rule(User(skintype=~L("default")),salience=-1)
     def Default(self):
-        # with open('recommendations.json', 'a') as json_file:
-        #     json.dump(self.recommendations, json_file)
-        #     json_file.write('\n')
-        # print("Facts have been successfully written to facts.json")
+        print("to json")
         if os.path.exists('recommendations.json'):
             with open('recommendations.json', 'w') as json_file:
                 json.dump(self.recommendations, json_file)
@@ -1510,8 +964,3 @@ Management of acne breakouts (considering sensitivities).'''
                 json_file.write('\n')
             print("Facts have been successfully written to recommendations.json")
     
-        
-# engine = SkinCareExpertSystem()
-# engine.reset()
-# engine.run()
-# print(engine.facts)

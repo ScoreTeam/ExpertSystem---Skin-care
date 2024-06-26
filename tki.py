@@ -10,14 +10,17 @@ from styles import configure_styles
 intro = 'Assets/logo2.png'
 small = 'Assets/score2.png'
 background_img = 'Assets/background4.png'  
-# Assets/background3.png for the frame
+# Assets/background3.png   #configure for the frame
 
 with open('Qu.json', 'r') as f:
     questions = json.load(f)
-with open('recommendations.json', 'r') as f:
-    recommendations = json.load(f)
+
+
 
 user_answers = []
+engine = SkinCareExpertSystem()
+
+
 
 class QuestionnaireApp:
     def __init__(self, master):
@@ -28,9 +31,9 @@ class QuestionnaireApp:
         self.intro_img = None
         self.small_img = None
         self.background_img = None  
-        configure_styles()  # Apply styles
+        configure_styles() 
         self.show_intro_screen()
-        self.delay = 2000
+        self.delay = 5000
 
     def display_question(self):
        if self.current_question_index < len(questions):
@@ -40,14 +43,13 @@ class QuestionnaireApp:
            for widget in self.answer_frame.winfo_children():
                widget.destroy()
                
-           self.radio_buttons = []  # To store radio button widgets
+           self.radio_buttons = []  
            self.selected_answer = tk.StringVar(value=current_question['valid'][0])
            for i, answer in enumerate(current_question['valid']):
                rb = ttk.Radiobutton(self.answer_frame, text=answer, variable=self.selected_answer, value=answer, style="Custom.TRadiobutton")
                rb.pack(anchor=tk.W, pady=5)
                self.radio_buttons.append(rb)
 
-           # Bind arrow keys to navigate through radio buttons
            self.master.bind('<Up>', self.select_previous)
            self.master.bind('<Down>', self.select_next)
        else:
@@ -77,6 +79,21 @@ class QuestionnaireApp:
             messagebox.showwarning("No Answer Selected", "Please select an answer.")
 
     def show_loading_page(self):
+        engine.reset()
+        engine.declare(User(skintype=user_answers[0], skintypeconf=1.0,
+                        skintone=user_answers[1], skintoneconf=1.0,
+                        season=user_answers[5], seasonconf=1.0,
+                        routinetype=user_answers[6], routinetypeconf=1.0,
+                        sensitivitydetails=user_answers[7], sensitivitydetailsconf=float(user_answers[8]),
+                        have_acne=user_answers[11], have_acneconf=float(user_answers[13]),
+                        acnedetails=user_answers[12], acnedetailsconf=float(user_answers[13]),
+                        skincondition=user_answers[9], skinconditionconf=float(user_answers[10]),
+                        age=user_answers[4], ageconf=1.0,
+                        gender=user_answers[2], genderconf=1.0,
+                        pregnancy=user_answers[3], pregnancyconf=1.0,
+                        breastfeeding=user_answers[3], breastfeedingconf=1.0,
+                        ))
+        engine.run()
         self.master.unbind_all('<Key>')
         self.master.unbind('<Return>') 
 
@@ -95,16 +112,20 @@ class QuestionnaireApp:
         self.progress_bar.stop()
         self.progress_bar.destroy()
         self.master.bind('<Return>', lambda event: self.next_question())
-
+        
         self.show_recommendations()
 
 
-    def show_recommendations(self):
-        self.display_recommendation()
+    def show_recommendations(self,):
+        
+        with open('recommendations.json', 'r') as f:
+            recommendations = json.load(f)
+        self.display_recommendation(recommendations)
 
-        self.master.bind('<Return>', lambda event: self.next_recommendation())
+        self.master.bind('<Return>', lambda event: self.next_recommendation(recommendations))
 
-    def display_recommendation(self):
+    def display_recommendation(self,recommendations):
+        
         if self.current_recommendation_index < len(recommendations):
             recommendation = recommendations[self.current_recommendation_index]
             confvalue=str(recommendation.get('confidence','N/A'))[:5]
@@ -125,9 +146,9 @@ class QuestionnaireApp:
             messagebox.showinfo("End of Recommendations", "You have viewed all the recommendations.\nThank you for using our app 💚",)
             self.master.after(self.delay, self.master.quit)
 
-    def next_recommendation(self):
+    def next_recommendation(self,recommendations):
         self.current_recommendation_index += 1
-        self.display_recommendation()
+        self.display_recommendation(recommendations)
 
     def show_intro_screen(self):
         intro_frame = ttk.Frame(self.master, style="Intro.TFrame")
@@ -136,13 +157,13 @@ class QuestionnaireApp:
         intro_img_pil = Image.open(intro)
         intro_img_pil = intro_img_pil.resize((400, 400))
         self.intro_img = ImageTk.PhotoImage(intro_img_pil)
-        intro_label = ttk.Label(intro_frame, image=self.intro_img, background="light green")
+        intro_label = ttk.Label(intro_frame, image=self.intro_img, background="#a2f2bd")
         intro_label.pack(pady=150)
 
         small_img_pil = Image.open(small)
         small_img_pil = small_img_pil.resize((100, 100))
         self.small_img = ImageTk.PhotoImage(small_img_pil)
-        small_label = ttk.Label(intro_frame, image=self.small_img, background="light green")
+        small_label = ttk.Label(intro_frame, image=self.small_img, background="#a2f2bd")
         small_label.pack(pady=0)
 
         intro_frame.image = self.intro_img
@@ -163,7 +184,7 @@ class QuestionnaireApp:
 
         intro_text = self.read_intro_text("intro")
 
-        main_frame = tk.Frame(self.master, bg="light green", padx=0, pady=0)  
+        main_frame = tk.Frame(self.master, bg="#a2f2bd", padx=0, pady=0)  
         main_frame.grid(row=0, column=0, sticky="nsew")
 
         bg_img_pil = Image.open(background_img)
@@ -215,7 +236,7 @@ class QuestionnaireApp:
         inner_frame.grid_rowconfigure(0, weight=1)
         inner_frame.grid_columnconfigure(0, weight=1)
 
-        self.master.after(self.delay, lambda: self.start_questionnaire(main_frame))
+        self.master.after(1, lambda: self.start_questionnaire(main_frame))
 
     def start_questionnaire(self, previous_frame):
         previous_frame.destroy()
@@ -251,20 +272,6 @@ if __name__ == "__main__":
     root.mainloop()
 
     print("User answers:", user_answers)
-    engine = SkinCareExpertSystem()
-    engine.reset()
-    engine.declare(User(skintype=user_answers[0], skintypeconf=1.0,
-                        skintone=user_answers[1], skintoneconf=1.0,
-                        season=user_answers[5], seasonconf=1.0,
-                        routinetype=user_answers[6], routinetypeconf=1.0,
-                        sensitivitydetails=user_answers[7], sensitivitydetailsconf=float(user_answers[8]),
-                        have_acne=user_answers[11], have_acneconf=float(user_answers[13]),
-                        acnedetails=user_answers[12], acnedetailsconf=float(user_answers[13]),
-                        skincondition=user_answers[9], skinconditionconf=float(user_answers[10]),
-                        age=user_answers[4], ageconf=1.0,
-                        gender=user_answers[2], genderconf=1.0,
-                        pregnancy=user_answers[3], pregnancyconf=1.0,
-                        breastfeeding=user_answers[3], breastfeedingconf=1.0,
-                        ))
-    engine.run()
+    
     print(engine.facts)
+    
