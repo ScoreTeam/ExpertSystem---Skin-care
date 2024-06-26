@@ -31,7 +31,9 @@ class QuestionnaireApp:
         self.intro_img = None
         self.small_img = None
         self.background_img = None  
-        configure_styles() 
+
+        configure_styles()  
+
         self.show_intro_screen()
         self.delay = 5000
 
